@@ -1,20 +1,22 @@
 package com.pangu.log;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /*
  * @author:liuzhaolu
  * @createTime: 2019-12-20 18:15
  * @desc:
  */
+@Component
 public class LogUtils {
     static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
 
-    /**
-     * info log
-     * @param str
-     */
+    public void info(String str){
+        logger.info(str);
+    }
 
     public void error(String str){
         logger.error(str);
