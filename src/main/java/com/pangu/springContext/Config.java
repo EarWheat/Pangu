@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @desc:
  */
 @Configuration
+@MqMessageListenerConfig(topic = "testTopic", consumerGroup = "testGroup")
 public class Config{
     private String name = "hello";
     private String env = "test";

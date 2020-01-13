@@ -35,7 +35,13 @@ class SpringContextUtilTest {
 
     private static void main(String[] args){
         System.out.println("hello application Text");
-        Object object = SpringContextUtil.getBean("MqMessageListenerConfig");
-        System.out.println(object.toString());
+        Config config = (Config)SpringContextUtil.getBean("configDemoBean");
+        System.out.println(config.getName());
+        try {
+            MqMessageListenerConfig mqMessageListenerConfig = Class.forName("com.pangu.springContext.MqMessageListenerConfig").getAnnotation(MqMessageListenerConfig.class);
+            System.out.println(mqMessageListenerConfig.consumerGroup());
+        } catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.lang.reflect.Field;
+
 /*
  * @author:liuzhaolu
  * @createTime: 2019-12-26 19:27
@@ -18,11 +20,27 @@ public class PanguApplication {
         // 注入上下文信息
         ApplicationContext context = SpringApplication.run(PanguApplication.class, args);
         SpringContextUtil.setApplicationContext(context);
-        Config config = (Config)context.getBean("configDemoBean");
+        System.out.println("hello application Text");
+        Config config = (Config)SpringContextUtil.getBean("configDemoBean");
         System.out.println(config.getName());
-        context.getEnvironment();
-        context.getApplicationName();
-        MqMessageListenerConfig mqMessageListenerConfig = Class.forName("com.pangu.springContext.MqMessageListenerConfig").getAnnotation(MqMessageListenerConfig.class);
-        System.out.println(mqMessageListenerConfig.consumerGroup());
+        try {
+
+            Field[] fields = config.getClass().getDeclaredFields();
+            for(Field field : fields){
+                //判断属性是否标注了@ProductAnnotation注解
+                boolean fieldHasAnno = field.isAnnotationPresent(MqMessageListenerConfig.class);
+                if(fieldHasAnno){
+                    //获取@ProductAnnotation注解
+                    MqMessageListenerConfig mqMessageListenerConfig = field.getAnnotation(MqMessageListenerConfig.class);
+                    //获取@ProductAnnotation注解 参数值
+                    String topic = mqMessageListenerConfig.topic();
+                    String consumerGroup = mqMessageListenerConfig.consumerGroup();
+                    System.out.println(topic);
+                    System.out.println(consumerGroup);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
