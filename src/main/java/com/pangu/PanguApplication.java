@@ -3,6 +3,8 @@ package com.pangu;
 import com.pangu.springContext.Config;
 import com.pangu.springContext.MqMessageListenerConfig;
 import com.pangu.springContext.SpringContextUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -24,7 +26,6 @@ public class PanguApplication {
         Config config = (Config)SpringContextUtil.getBean("configDemoBean");
         System.out.println(config.getName());
         try {
-
             Field[] fields = config.getClass().getDeclaredFields();
             for(Field field : fields){
                 //判断属性是否标注了@ProductAnnotation注解
