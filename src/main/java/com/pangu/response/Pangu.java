@@ -1,4 +1,4 @@
-package com.pangu;
+package com.pangu.response;
 
 import com.alibaba.fastjson.JSONObject;
 import com.pangu.entity.ErrorCode;

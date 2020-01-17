@@ -8,8 +8,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.AnnotationUtils;
 
 import java.lang.reflect.Field;
+import java.util.Iterator;
+import java.util.Map;
 
 /*
  * @author:liuzhaolu
@@ -18,30 +21,33 @@ import java.lang.reflect.Field;
  */
 @SpringBootApplication
 public class PanguApplication {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) {
         // 注入上下文信息
         ApplicationContext context = SpringApplication.run(PanguApplication.class, args);
         SpringContextUtil.setApplicationContext(context);
-        System.out.println("hello application Text");
-        Config config = (Config)SpringContextUtil.getBean("configDemoBean");
-        System.out.println(config.getName());
-        try {
-            Field[] fields = config.getClass().getDeclaredFields();
-            for(Field field : fields){
-                //判断属性是否标注了@ProductAnnotation注解
-                boolean fieldHasAnno = field.isAnnotationPresent(MqMessageListenerConfig.class);
-                if(fieldHasAnno){
-                    //获取@ProductAnnotation注解
-                    MqMessageListenerConfig mqMessageListenerConfig = field.getAnnotation(MqMessageListenerConfig.class);
-                    //获取@ProductAnnotation注解 参数值
-                    String topic = mqMessageListenerConfig.topic();
-                    String consumerGroup = mqMessageListenerConfig.consumerGroup();
-                    System.out.println(topic);
-                    System.out.println(consumerGroup);
-                }
+        // 获取所有bean信息
+        String[] beans = context.getBeanDefinitionNames();
+        for (String beanName:beans){
+            System.out.println(beanName);
+        }
+        System.out.println("=========================");
+        Map<String,Object> annotations = context.getBeansWithAnnotation(MqMessageListenerConfig.class);
+        Config config = (Config)annotations.get("config");  // 找到有该注解的类
+        MqMessageListenerConfig mqMessageListenerConfig = AnnotationUtils.findAnnotation(config.getClass(),MqMessageListenerConfig.class);
+        if(mqMessageListenerConfig != null){
+            System.out.println("topic:" + mqMessageListenerConfig.topic());
+            System.out.println("group:" + mqMessageListenerConfig.consumerGroup());
+        }
+        // 获取所有该注解的属性值
+        Iterator iterator = annotations.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry entry = (Map.Entry) iterator.next();
+            Object object = entry.getValue();
+            MqMessageListenerConfig mqMessageListenerConfig1 = AnnotationUtils.findAnnotation(object.getClass(),MqMessageListenerConfig.class);
+            System.out.println(entry.getKey());
+            if(mqMessageListenerConfig1 != null){
+                System.out.println("topic:"+mqMessageListenerConfig1.topic()+ "     group:"+mqMessageListenerConfig1.consumerGroup());
             }
-        } catch (Exception e){
-            e.printStackTrace();
         }
     }
 }
