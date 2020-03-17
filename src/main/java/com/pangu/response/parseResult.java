@@ -1,0 +1,42 @@
+package com.pangu.response;
+
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+ * @author:liuzhaolu
+ * @createTime: 2020-03-16 18:45
+ * @desc:
+ */
+
+public class parseResult {
+    public static void main(String[] args){
+        String s = "{\"errMsg\":\"SUCCESS\",\"errNo\":0,\"result\":[{\"current_lat\":\"-19.880898\",\"driver_id\":\"650910902362621\",\"free_chn\":\"0\",\"new_lng\":\"-44.019223\",\"cancelled_time\":\"0000-00-00 00:00:00\",\"county\":\"55000958\",\"begin_charge_time\":\"2020-03-07 19:05:45\",\"order_status\":\"5\",\"bouns\":\"0\",\"new_time\":\"2020-03-07 18:56:21\",\"product_id\":\"16\",\"starting_lng\":\"-44.019212\",\"starting_name\":\"R. São Geraldo, 323 - Parque Turistas, Contagem - MG, 32110-390, Brasil\",\"with_flight_number\":\"0\",\"assigned_time\":\"2020-03-07 18:58:34\",\"safety_info\":\"{\\\"remind_type\\\":0}\",\"commercial_type\":\"0\",\"car_ticket\":\"0\",\"estimate_id\":\"3b12f08b63505962959b7f4668cee5c6\",\"way_points_a_info\":\"\",\"source_type\":\"1\",\"upper_limit_price_discount\":\"0\",\"version\":\"3\",\"source_car_level\":\"0\",\"arrive_time\":\"2020-03-07 19:05:35\",\"coupon_info\":\"[]\",\"tags\":\"\",\"input\":\"1\",\"finished_lng\":\"-44.005926\",\"close_reason\":\"0\",\"freeze_source\":\"0\",\"order_id\":\"87968284760401\",\"driver_type\":\"1\",\"tripcloud_app_id\":\"0\",\"line_up\":\"0\",\"carpool_price_type\":\"0\",\"reassign_order_source\":\"0\",\"is_social_security_driver\":\"0\",\"driver_product_id\":\"16\",\"estimate_time\":\"9\",\"reassign_last_order_id\":\"0\",\"cap_chn\":\"0\",\"booking_assign\":\"0\",\"cooperation_id\":\"0\",\"starting_poi_id\":\"ChIJiSI5CFaRpgARnsFJkCzXH7E\",\"prepared_time\":\"2020-03-07 19:05:35\",\"compress_type\":\"0\",\"is_anycar\":\"0\",\"card_type\":\"\",\"promise_time\":\"0\",\"discount_chn\":\"0\",\"way_points_b_status\":\"0\",\"completed_lng\":\"0.000000\",\"driver_start_distance\":\"2703\",\"gulfstream_ahead_assigned\":\"\",\"new_lat\":\"-19.880898\",\"bigc_info\":\"\",\"ext_order_id\":\"\",\"carpool_long_order\":\"0\",\"current_lng\":\"-44.019223\",\"driver_display_price\":\"0.00\",\"destination_fixed\":\"0\",\"x_activity_type\":\"0\",\"passenger_id\":\"87960987658378\",\"upper_limit_price\":\"0\",\"global_order_id\":\"\",\"begun_lng\":\"-44.019303\",\"_modify_time\":\"2020-03-07 19:14:46\",\"driver_snapshot\":\"\",\"consult_min\":\"15\",\"schema_id\":\"5\",\"extra_type\":\"2148036\",\"tip\":\"0\",\"dest_poi_id\":\"ChIJkRlDt7CWpgAR_irRAYYHgXg\",\"pangu_times\":\"0.00\",\"weixin_chn\":\"0\",\"area\":\"55000116\",\"is_dual_carpool_price\":\"0\",\"way_points_a_status\":\"0\",\"finish_time\":\"2020-03-07 19:14:45\",\"local_time_zone\":\"-180\",\"vendor_trade_id\":\"\",\"emergency_service_type\":\"0\",\"district\":\"01116\",\"source_product_id\":\"0\",\"begun_time\":\"2020-03-07 19:05:45\",\"walk_type\":\"0\",\"combo_type\":\"4\",\"region\":\"0\",\"is_carpool_success\":\"0\",\"promise_type\":\"0\",\"way_points_b_info\":\"\",\"way_points_version\":\"\",\"distance\":\"2.9\",\"strive_time\":\"2020-03-07 18:58:34\",\"from_name\":\"R. São Geraldo, 323\",\"approach_airport\":\"0\",\"is_rainbow\":\"0\",\"consult_time\":\"2020-03-07 19:13:34\",\"offline_pay_status\":\"0\",\"strive_notify_status\":\"0\",\"tripcloud_extra_info\":\"\",\"pangu_max\":\"0.00\",\"end_charge_lat\":\"-19.898541\",\"driver_estimate_price\":\"0\",\"split_fare_version\":\"0\",\"to_name\":\"Lojas REDE\",\"long_rent_type\":\"0\",\"p_sub_id\":\"0\",\"completed_lat\":\"0.000000\",\"international_signpost\":\"{\\\"airportRide\\\":0,\\\"functions\\\":{\\\"price_mode\\\":0}}\",\"pre_total_fee\":\"8.30\",\"reduce_carbon\":\"0\",\"balance_chn\":\"0\",\"combo_id\":\"0\",\"serial_order\":\"0\",\"begun_lat\":\"-19.880994\",\"dest_commercial_area\":\"\",\"to_area\":\"0\",\"hotel_type\":\"0\",\"business_id\":\"316\",\"consult_status\":\"1\",\"resend_reason\":\"\",\"call_times\":\"1\",\"is_platform_paid\":\"0\",\"custom_service\":\"0\",\"setoncar_time\":\"0000-00-00 00:00:00\",\"strategy_token\":\"5bd4d2d4d4f1746f5532ab4d19f62740:5beeb7b9c114b47149b0ab49d2094d50\",\"is_special_price\":\"0\",\"assigned_lat\":\"-19.871305\",\"callcar_name\":\"\",\"channel\":\"102\",\"passenger_count\":\"1\",\"region_type\":\"0\",\"dynamic_price\":\"800\",\"type\":\"0\",\"assign_type\":\"1\",\"local_currency\":\"BRL\",\"estimate_fixed_fees\":\"[]\",\"dest_lat\":\"-19.898086\",\"route_type\":\"0\",\"carpool_type\":\"2\",\"car_id\":\"360287970192515738\",\"pbd_oid\":\"\",\"start_broadcast_time_type\":\"0\",\"to_address\":\"Avenida Abílio Machado - Glória, Belo Horizonte - MG, Brasil\",\"_status\":\"1\",\"driver_phone\":\"31995639748\",\"combo_time\":\"0\",\"contract_type\":\"0\",\"driver_stock_out_time\":\"\",\"is_split_fare\":\"0\",\"coupon_chn\":\"0\",\"start_commercial_area\":\"\",\"level_type\":\"0\",\"original_passenger_count\":\"0\",\"begin_charge_lng\":\"-44.019303\",\"dest_name\":\"Lojas REDE, Avenida Abílio Machado - Glória, Belo Horizonte - MG, Brasil\",\"start_dest_distance\":\"2921\",\"menu_id\":\"\",\"passenger_phone\":\"+5531982579138\",\"airport_type\":\"0\",\"cap_price\":\"8.30\",\"_birth_time\":\"2020-03-07 18:56:21\",\"roaming\":\"0\",\"end_charge_lng\":\"-44.005926\",\"departure_recommend\":\"0\",\"loss_remand\":\"0\",\"actual_level\":\"0\",\"biz_ticket\":\"\",\"duse_march_mode\":\"0\",\"completed_time\":\"2020-03-07 19:14:46\",\"tripcloud_open_pid\":\"\",\"require_level\":\"1300\",\"prepared_lng\":\"0.000000\",\"cancelled_lat\":\"0.000000\",\"strive_car_level\":\"1300\",\"is_accurate_order\":\"0\",\"gulfstream_guide_scene\":\"\",\"gulfstream_last_order_id\":\"\",\"complete_type\":\"0\",\"start_broadcast_time\":\"0\",\"railway_type\":\"0\",\"is_cancel_comment\":\"1\",\"verify_level\":\"-1\",\"approach_railway\":\"0\",\"assigned_lng\":\"-44.002313\",\"coordinate_type\":\"2\",\"departure_time\":\"2020-03-07 19:04:14\",\"ext_driver_id\":\"\",\"from_address\":\"R. São Geraldo, 323 - Parque Turistas, Contagem - MG, 32110-390, Brasil\",\"upper_limit_price_type\":\"0\",\"dest_lng\":\"-44.006234\",\"starting_lat\":\"-19.880953\",\"is_female_travel\":\"0\",\"level\":\"0\",\"_modify_time_ns\":\"0\",\"is_down_accept\":\"0\",\"virtual_phone\":\"1\",\"freeze_status\":\"0\",\"country_iso_code\":\"BR\",\"tripcloud_open_oid\":\"\",\"combo_distance\":\"0.00\",\"split_fare_info\":\"\",\"geofencing\":\"0\",\"is_pay\":\"1\",\"finished_lat\":\"-19.898541\",\"pbd_ext_oid\":\"\",\"travel_id\":\"103781414634694\",\"prepared_lat\":\"0.000000\",\"call_car\":\"0\",\"begin_charge_lat\":\"-19.880994\",\"fixed_price_type\":\"0\",\"remark\":\"\",\"partner_id\":\"0\",\"to_county\":\"0\",\"pay_type\":\"2048\",\"enterprise_flag\":\"0\",\"play_cnt\":\"0\",\"delay_time_start\":\"0000-00-00 00:00:00\",\"finished_time\":\"2020-03-07 19:14:45\",\"capacity_level\":\"1300\",\"company_group_ids\":\"\",\"_create_time\":\"2020-03-07 18:56:20\",\"extend_feature\":\"{\\\"carpool_station_info\\\":{\\\"lat\\\":-19.88096739851,\\\"lng\\\":-44.019297704771,\\\"station_id\\\":\\\"-44.01930_-19.88097\\\",\\\"station_name\\\":\\\"R. São Geraldo, 327\\\"},\\\"dp_price\\\":\\\"3.1\\\",\\\"estimate_info\\\":{\\\"estimate_fixed_fees\\\":\\\"[]\\\",\\\"fixed_preferential\\\":0,\\\"red_packet\\\":-1,\\\"start_dest_distance\\\":\\\"2921\\\",\\\"start_dest_time\\\":9},\\\"is_hot_route\\\":\\\"1\\\",\\\"neworder_info\\\":{\\\"is_region\\\":0,\\\"platform_type\\\":1},\\\"pseudo_pop_gmv\\\":\\\"10.8\\\"}\",\"combo_fee\":\"0.00\",\"extra_info\":\"\",\"d_sub_id\":\"0\",\"cancelled_lng\":\"0.000000\",\"station_service_control\":\"0\",\"count_price_type\":\"2\"}]}";
+        List<String> result = parseOrderResultList(s);
+        for(String str : result){
+            System.out.println(str);
+        }
+    }
+
+    public static List<String> parseOrderResultList(String param){
+        List<String> list = new ArrayList<>();
+        try{
+            JSONObject jsonObject = JSON.parseObject(param);
+            JSONArray orderList = jsonObject.getJSONArray("result");
+            for(int i = 0; i < orderList.size(); i ++){
+                JSONObject order = orderList.getJSONObject(i);
+                if(order.containsKey("order_id")){
+                    list.add(order.getString("order_id"));
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+}
