@@ -20,7 +20,7 @@ public class fileUtil {
     private LogUtils logUtils;
 
     public static void main(String[] args){
-        String filePath = "/Users/didi/Documents/BR_WAR.xlsx";
+        String filePath = "/Users/didi/Documents/br_war_0319.xlsx";
         JSONObject object = file2Json(filePath);
         System.out.println(object.toJSONString());
     }
