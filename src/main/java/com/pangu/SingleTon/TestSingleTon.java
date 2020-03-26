@@ -1,5 +1,8 @@
 package com.pangu.SingleTon;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * @author:liuzhaolu
  * @createTime: 2020-03-22 13:59
@@ -8,6 +11,8 @@ package com.pangu.SingleTon;
 public class TestSingleTon {
     public static void main(String[] args){
         int i = 10;
+        Map map = new HashMap();
+
         SingleTon singleTon = SingleTon.getInstance();
         SingleTon.setNum(i);
         SingleTon singleTon1 = SingleTon.getInstance();
