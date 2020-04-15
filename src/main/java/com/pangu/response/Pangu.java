@@ -2,12 +2,14 @@ package com.pangu.response;
 
 import com.alibaba.fastjson.JSONObject;
 import com.pangu.entity.ErrorCode;
+import org.springframework.stereotype.Component;
 
 /*
  * @author:liuzhaolu
  * @createTime: 2019-12-19 16:05
  * @desc:http response
  */
+@Component
 public class Pangu {
 
     // 成功默认返回
