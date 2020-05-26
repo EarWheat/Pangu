@@ -1,7 +1,9 @@
 package com.pangu;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.pangu.http.restful.RestFulResult;
 import com.pangu.response.Pangu;
 
 /*
@@ -12,23 +14,11 @@ import com.pangu.response.Pangu;
 class PanguTest {
 
     @org.junit.jupiter.api.Test
-    void success() {
-        Pangu httpResponse = new Pangu();
-        System.out.println(httpResponse.success());
-    }
-
-    @org.junit.jupiter.api.Test
-    void error() {
-        Pangu httpResponse = new Pangu();
-        System.out.println(httpResponse.error());
-    }
-
-    @org.junit.jupiter.api.Test
     void testSuccess() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("score",99);
-        jsonObject.put("name","Math");
-        Pangu httpResponse = new Pangu();
-        System.out.println(httpResponse.success(jsonObject));
+        JSONObject object = JSON.parseObject("{\"errno\":0,\"errmsg\":\"SUCCESS\",\"data\":\"hello\"}");
+        RestFulResult restFulResult1 = RestFulResult.successResult(object);
+        System.out.println(JSONObject.toJSONString(restFulResult1));
+        RestFulResult restFulResult2 = RestFulResult.failResult(10000,"ERROR","Test EXCEPTION");
+        System.out.println(JSONObject.toJSONString(restFulResult2));
     }
 }
