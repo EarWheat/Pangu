@@ -1,23 +1,22 @@
 package com.pangu.file;
 
 import com.alibaba.fastjson.JSONObject;
-import com.pangu.log.LogUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
-import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /*
  * @author:liuzhaolu
  * @createTime: 2020-03-01 12:44
  * @desc:
  */
-public class fileUtil {
+public class FileUtil {
 
-    private LogUtils logUtils;
+    static final Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
     public static void main(String[] args){
         String filePath = "/Users/didi/Documents/br_war_0319.xlsx";

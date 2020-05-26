@@ -1,4 +1,4 @@
-package com.pangu.http.restful;
+package com.pangu.http.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @createTime: 2020-05-26 10:18
  * @desc:
  */
-public class RestFulResult<T> implements Serializable {
+public class RestResult<T> implements Serializable {
     private static final long serialVersionUID = 8731622331306688357L;
 
     @JSONField(name = "errno")
@@ -19,13 +19,13 @@ public class RestFulResult<T> implements Serializable {
     @JSONField(name = "data")
     private T data;
 
-    public RestFulResult(int errNo, String errMsg, T data) {
+    public RestResult(int errNo, String errMsg, T data) {
         this.errNo = errNo;
         this.errMsg = errMsg;
         this.data = data;
     }
 
-    public RestFulResult(){
+    public RestResult(){
 
     }
 
@@ -54,11 +54,11 @@ public class RestFulResult<T> implements Serializable {
     }
 
 
-    public static <T> RestFulResult<T> successResult(T data) {
-        return new RestFulResult<>(0, "success", data);
+    public static <T> RestResult<T> successResult(T data) {
+        return new RestResult<>(0, "success", data);
     }
 
-    public static <T> RestFulResult<T> failResult(int errNo, String errMsg, T data) {
-        return new RestFulResult<>(errNo, errMsg, data);
+    public static <T> RestResult<T> failResult(int errNo, String errMsg, T data) {
+        return new RestResult<>(errNo, errMsg, data);
     }
 }

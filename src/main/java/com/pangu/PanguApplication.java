@@ -21,10 +21,14 @@ import java.util.Map;
  */
 @SpringBootApplication
 public class PanguApplication {
+
+    private static final Logger logger = LoggerFactory.getLogger(PanguApplication.class);
+
     public static void main(String[] args) {
         // 注入上下文信息
         ApplicationContext context = SpringApplication.run(PanguApplication.class, args);
         SpringContextUtil.setApplicationContext(context);
+        logger.info("test Log Config");
         // 获取所有bean信息
         String[] beans = context.getBeanDefinitionNames();
         for (String beanName:beans){

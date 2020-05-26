@@ -25,6 +25,4 @@ server:
   port: 8000
 
 logging:
-  file:
-    path: /Users/didi/IdeaProjects/pangu/pangulogs/
-    name: pangu
+  config: classpath:logback-spring.xml
