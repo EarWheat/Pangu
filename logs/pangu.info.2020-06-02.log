@@ -1,0 +1,109 @@
+2020-06-02 20:14:26||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 80079 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:14:26||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:14:28||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:14:28||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:14:29||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:14:29||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.922 seconds (JVM running for 6.49)
+2020-06-02 20:14:31||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:19:00||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 80417 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:19:00||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:19:03||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:19:03||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:19:03||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:19:04||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.412 seconds (JVM running for 5.964)
+2020-06-02 20:19:04||INFO ||c.p.monitor.rest.RestCostTimeAspect:55||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) endTime:1591100344529
+2020-06-02 20:19:04||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:21:40||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 80580 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:21:40||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:21:42||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:21:42||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:21:43||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:21:44||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 5.441 seconds (JVM running for 8.322)
+2020-06-02 20:22:19||INFO ||c.p.monitor.rest.RestCostTimeAspect:55||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) endTime:1591100537843
+2020-06-02 20:22:22||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:22:35||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 80642 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:22:35||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:22:38||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:22:38||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:22:39||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:22:40||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 5.811 seconds (JVM running for 7.599)
+2020-06-02 20:22:40||INFO ||c.p.monitor.rest.RestCostTimeAspect:55||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) endTime:1591100560350
+2020-06-02 20:22:40||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:34:01||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 81312 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:34:01||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:34:04||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:34:04||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:34:05||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:34:06||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 5.45 seconds (JVM running for 6.681)
+2020-06-02 20:34:06||INFO ||c.p.monitor.rest.RestCostTimeAspect:50||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException startTime:1591101246061
+2020-06-02 20:34:06||INFO ||c.p.monitor.rest.RestCostTimeAspect:52||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException endTime:1591101246061
+2020-06-02 20:34:06||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:40:07||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 81698 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:40:07||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:40:10||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:40:10||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:40:10||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:40:11||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.812 seconds (JVM running for 6.665)
+2020-06-02 20:40:11||INFO ||c.p.monitor.rest.RestCostTimeAspect:67||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException endTime:1591101611476
+2020-06-02 20:40:12||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:42:41||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 81873 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:42:41||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:42:43||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:42:43||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:42:44||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:42:44||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.479 seconds (JVM running for 5.594)
+2020-06-02 20:42:44||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:47:30||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82146 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:47:30||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:47:33||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:47:33||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:47:34||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:47:34||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 6.336 seconds (JVM running for 8.994)
+2020-06-02 20:47:42||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:48:31||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82220 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:48:31||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:48:33||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:48:33||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:48:34||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:48:34||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.283 seconds (JVM running for 5.374)
+2020-06-02 20:48:34||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:51:19||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82545 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:51:19||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:51:21||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:51:21||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:51:21||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:51:22||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.057 seconds (JVM running for 5.238)
+2020-06-02 20:51:22||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:52:03||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82621 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:52:03||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:52:05||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:52:05||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:52:06||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:52:06||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.569 seconds (JVM running for 5.932)
+2020-06-02 20:52:06||INFO ||c.p.monitor.rest.RestCostTimeAspect:69||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException endTime:1591102326907
+2020-06-02 20:52:06||INFO ||c.p.monitor.rest.RestCostTimeAspect:70||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException costTime:1
+2020-06-02 20:52:06||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:53:10||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82708 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:53:10||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:53:12||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:53:12||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:53:13||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:53:13||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.285 seconds (JVM running for 5.459)
+2020-06-02 20:53:13||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:53:25||INFO ||c.p.annotationTest.RestCostTimeTest:55||Starting RestCostTimeTest on localhost with PID 82731 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-02 20:53:25||INFO ||c.p.annotationTest.RestCostTimeTest:651||No active profile set, falling back to default profiles: default
+2020-06-02 20:53:27||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:53:27||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-02 20:53:28||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-02 20:53:29||INFO ||c.p.annotationTest.RestCostTimeTest:61||Started RestCostTimeTest in 4.395 seconds (JVM running for 5.623)
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:41||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException startTime:1591102409147
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:47||<=====================================================
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:48||请求来源： =》127.0.0.1
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:49||请求URL：http://localhost
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:50||请求方式：
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:51||响应方法：com.pangu.annotationTest.RestCostTimeService.test
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:52||请求参数：[null]
+2020-06-02 20:53:29||INFO ||c.p.monitor.rest.RestCostTimeAspect:53||------------------------------------------------------
+2020-06-02 20:53:31||INFO ||c.p.monitor.rest.RestCostTimeAspect:70||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException endTime:1591102411207
+2020-06-02 20:53:31||INFO ||c.p.monitor.rest.RestCostTimeAspect:71||public void com.pangu.annotationTest.RestCostTimeService.test(java.lang.String) throws java.lang.InterruptedException costTime:2018
+2020-06-02 20:53:31||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'

@@ -1,8 +1,5 @@
 package com.pangu.annotationTest;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.pangu.http.response.RestResult;
 import com.pangu.monitor.rest.RestCostTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,10 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.xml.ws.Response;
 
 /*
- * @author:liuzhaolu
+ * @author:liuzhaolujudgeQuizComment
  * @createTime: 2020-05-26 18:14
  * @desc:
  */

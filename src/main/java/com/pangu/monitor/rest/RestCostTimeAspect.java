@@ -26,53 +26,36 @@ public class RestCostTimeAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(RestCostTimeAspect.class);
 
-    ThreadLocal<Long> startTime = new ThreadLocal<>();
     /**
      * @Pointcut声明了切点（这里的切点是我们自定义的注解类），
      */
     @Pointcut("@annotation(com.pangu.monitor.rest.RestCostTime)")
     private void annotationPointcut() {}
 
-    @Before("annotationPointcut()")
-    public void beforePointcut(JoinPoint joinPoint) {
-        MethodSignature methodSignature =  (MethodSignature) joinPoint.getSignature();
-        Method method = methodSignature.getMethod();
+
+    @Around("annotationPointcut()")
+    public Object process(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("this is around");
         long start = System.currentTimeMillis();
-        logger.info(method+" startTime:" + start);
-        System.out.println(method+" startTime:" + start);
-        startTime.set(start);
-        System.out.println("方法执行前执行......before");
+        System.out.println("around time:" + start);
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         logger.info("<=====================================================");
         logger.info("请求来源： =》" + request.getRemoteAddr());
         logger.info("请求URL：" + request.getRequestURL().toString());
         logger.info("请求方式：" + request.getMethod());
-        logger.info("响应方法：" + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.info("请求参数：" + Arrays.toString(joinPoint.getArgs()));
+        logger.info("响应方法：" + pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName());
+        logger.info("请求参数：" + Arrays.toString(pjp.getArgs()));
         logger.info("------------------------------------------------------");
-        startTime.set(System.currentTimeMillis());
-    }
-
-    @Around("annotationPointcut()")
-    public void process(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("this is around");
-        System.out.println("around time:" + System.currentTimeMillis());
-        startTime.set(System.currentTimeMillis());
-        pjp.proceed();
-    }
-
-    @AfterReturning("annotationPointcut()")
-    public void afterPointcut(JoinPoint joinPoint) {
-        MethodSignature methodSignature =  (MethodSignature) joinPoint.getSignature();
+        // 3.获取方法相关信息
+        MethodSignature methodSignature =  (MethodSignature) pjp.getSignature();
         Method method = methodSignature.getMethod();
-        long endTime = System.currentTimeMillis();
-        logger.info(method + " endTime:" + endTime);
-        logger.info(method + " costTime:" + (endTime - startTime.get()));
-        System.out.println(method + " endTime:" + endTime);
-        System.out.println(method + " costTime:" + (endTime - startTime.get()));
+        String methodStr = pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName();
+        logger.info("请求方法: " + methodStr);
+        Object result = pjp.proceed();
+        logger.info("请求结束,耗时{}毫秒，响应参数：{}",System.currentTimeMillis() - start,result);
+        return result;
     }
-
 
     @After("annotationPointcut()")
     public void after(){
