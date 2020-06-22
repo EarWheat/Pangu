@@ -1,5 +1,6 @@
 package com.pangu.annotationTest;
 
+import com.pangu.monitor.mail.IMailService;
 import com.pangu.monitor.rest.RestCostTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,9 @@ public class RestCostTimeTest {
     @Autowired
     private RestCostTimeService service;
 
+    @Autowired
+    private IMailService mailService;
+
     @Test
     @RestCostTime
     public void testRestCostTime() throws InterruptedException {
@@ -40,5 +44,13 @@ public class RestCostTimeTest {
     public void achieve(){
         System.out.println("方法执行-----------");
     }
+
+    @Test
+    public void sendmail() {
+        mailService.sendSimpleMail("554725722@qq.com","主题：你好普通邮件","内容：第一封邮件");
+    }
+
+
+
 
 }

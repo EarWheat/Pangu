@@ -1,19 +1,20 @@
 package com.pangu.monitor.rest;
 
-import com.pangu.annotation.AnnotationDemo;
+import com.pangu.monitor.mail.MailService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * @author:liuzhaolu
@@ -26,6 +27,8 @@ public class RestCostTimeAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(RestCostTimeAspect.class);
 
+    @Resource
+    private MailService mailService;
     /**
      * @Pointcut声明了切点（这里的切点是我们自定义的注解类），
      */
@@ -33,27 +36,45 @@ public class RestCostTimeAspect {
     private void annotationPointcut() {}
 
 
+    @Before(value = "@annotation(com.pangu.monitor.rest.RestCostTime)")
+    public void doBefore(JoinPoint joinPoint) {
+        //获取到请求的属性
+        ServletRequestAttributes attributes =
+                (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        //获取到请求对象
+        HttpServletRequest request = attributes.getRequest();
+
+        //URL：根据请求对象拿到访问的地址
+        logger.info("url=" + request.getRequestURL());
+        //获取请求的方法，是Get还是Post请求
+        logger.info("method=" + request.getMethod());
+        //ip：获取到访问
+        logger.info("ip=" + request.getRemoteAddr());
+        //获取被拦截的类名和方法名
+        logger.info("class=" + joinPoint.getSignature().getDeclaringTypeName() +
+                "and method name=" + joinPoint.getSignature().getName());
+        //参数
+        logger.info("参数=" + joinPoint.getArgs().toString());
+
+    }
+
+
     @Around("annotationPointcut()")
     public Object process(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("this is around");
         long start = System.currentTimeMillis();
-        System.out.println("around time:" + start);
+        Map<String, String> map = new HashMap<>();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        logger.info("<=====================================================");
-        logger.info("请求来源： =》" + request.getRemoteAddr());
-        logger.info("请求URL：" + request.getRequestURL().toString());
-        logger.info("请求方式：" + request.getMethod());
-        logger.info("响应方法：" + pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName());
-        logger.info("请求参数：" + Arrays.toString(pjp.getArgs()));
-        logger.info("------------------------------------------------------");
-        // 3.获取方法相关信息
-        MethodSignature methodSignature =  (MethodSignature) pjp.getSignature();
-        Method method = methodSignature.getMethod();
-        String methodStr = pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName();
-        logger.info("请求方法: " + methodStr);
+        map.put("requestRemoteAddr",request.getRemoteAddr());
+        map.put("requestUrl",request.getRequestURL().toString());
+        map.put("requestMethod", request.getMethod());
+        map.put("requestParam",Arrays.toString(pjp.getArgs()));
+        map.put("requestCostTime", String.valueOf(System.currentTimeMillis() - start));
+        mailService.sendSimpleMail("554725722@qq.com","RestInfoMonitor",map.toString());
         Object result = pjp.proceed();
-        logger.info("请求结束,耗时{}毫秒，响应参数：{}",System.currentTimeMillis() - start,result);
+        System.out.println("requestCostTime:" + (System.currentTimeMillis() - start));
+        logger.info("requestCostTime:" + (System.currentTimeMillis() - start));
+        logger.info("============"+map.toString());
         return result;
     }
 
