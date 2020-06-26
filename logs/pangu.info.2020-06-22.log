@@ -1,0 +1,44 @@
+2020-06-22 16:59:12||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 34111 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 16:59:12||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 16:59:16||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 16:59:16||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 16:59:17||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 16:59:18||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 6.879 seconds (JVM running for 8.628)
+2020-06-22 16:59:18||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:16:37||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 35333 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 17:16:37||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 17:16:39||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:16:39||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:16:39||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:16:40||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 4.258 seconds (JVM running for 5.529)
+2020-06-22 17:16:40||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:42:04||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 36878 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 17:42:04||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 17:42:06||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:42:06||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:42:06||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:42:07||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 4.898 seconds (JVM running for 6.316)
+2020-06-22 17:42:07||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:42:35||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 36912 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 17:42:35||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 17:42:37||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:42:37||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:42:37||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:42:38||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 4.434 seconds (JVM running for 5.424)
+2020-06-22 17:42:38||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:43:12||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 36956 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 17:43:12||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 17:43:14||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:43:14||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:43:15||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:43:15||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 4.529 seconds (JVM running for 5.715)
+2020-06-22 17:43:15||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:50:05||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 37366 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 17:50:05||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default
+2020-06-22 17:50:08||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:50:08||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
+2020-06-22 17:50:09||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 17:50:10||INFO ||c.p.annotationTest.AnnotationTest:61||Started AnnotationTest in 7.877 seconds (JVM running for 10.021)
+2020-06-22 17:50:10||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-22 18:17:11||INFO ||c.p.annotationTest.AnnotationTest:55||Starting AnnotationTest on bogon with PID 39150 (started by didi in /Users/didi/IdeaProjects/pangu)
+2020-06-22 18:17:11||INFO ||c.p.annotationTest.AnnotationTest:651||No active profile set, falling back to default profiles: default

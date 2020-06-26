@@ -21,6 +21,8 @@ spring:
         max-idle: 20
         min-idle: 2
     timeout: 5000
+  monitor:
+    master.email: 554725722@qq.com #管理者邮箱
 server:
   port: 8000
 

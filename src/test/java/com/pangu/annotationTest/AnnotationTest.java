@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.pangu.annotation.AnnotationDemo;
 import com.pangu.entity.RestEntity;
 import com.pangu.monitor.rest.RestInfo;
+import com.pangu.monitor.scheduled.annotation.Monitor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ public class AnnotationTest {
 
     @Test
     @RequestMapping("/")
+    @Monitor(pattern = "asqweqwe")
     public void welcome(){
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("extra",restEntity.getExtra());

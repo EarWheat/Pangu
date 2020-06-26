@@ -16,13 +16,14 @@ import javax.annotation.Resource;
  * @createTime: 2020-06-12 18:27
  * @desc:
  */
-@org.springframework.web.bind.annotation.RestController
 @RestInfo
+@org.springframework.web.bind.annotation.RestController
 public class RestController {
 
     @Resource
     private RestEntity restEntity;
 
+    @RestCostTime
     @RequestMapping(value = "/test")
     public RestResult<JSONObject> restInfo(){
         JSONObject jsonObject = new JSONObject();

@@ -1,12 +1,13 @@
-package com.pangu.monitor.rest;
+package com.pangu.monitor.scheduled.annotation;
 
+import com.pangu.monitor.rest.RestInfoAnnotation;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
 
 /*
  * @author:liuzhaolu
- * @createTime: 2020-06-04 20:49
+ * @createTime: 2020-06-23 20:09
  * @desc:
  */
 @Target({ElementType.TYPE,  ElementType.METHOD})
@@ -14,6 +15,7 @@ import java.lang.annotation.*;
 @Documented
 
 
-@Import({RestInfoAnnotation.class})
-public @interface RestInfo {
+@Import({MonitorAnnotation.class})
+public @interface Monitor {
+    String pattern() default "";
 }

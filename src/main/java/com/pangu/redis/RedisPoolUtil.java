@@ -9,7 +9,7 @@ import redis.clients.jedis.Jedis;
  */
 public class RedisPoolUtil {
     private static RedisPool redisPool;
-    private static String get(String key){
+    private String get(String key){
         Jedis jedis = null;
         String result = null;
         try {
@@ -24,7 +24,7 @@ public class RedisPoolUtil {
             return result;
         }
     }
-    public static Long setnx(String key, String value){
+    public Long setnx(String key, String value){
         Jedis jedis = null;
         Long result = null;
         try {
@@ -40,7 +40,7 @@ public class RedisPoolUtil {
         }
     }
 
-    public static String getSet(String key, String value){
+    public String getSet(String key, String value){
         Jedis jedis = null;
         String result = null;
         try {
@@ -56,7 +56,7 @@ public class RedisPoolUtil {
         }
     }
 
-    public static Long expire(String key, int seconds){
+    public Long expire(String key, int seconds){
         Jedis jedis = null;
         Long result = null;
         try {
@@ -72,7 +72,7 @@ public class RedisPoolUtil {
         }
     }
 
-    public static Long del(String key){
+    public Long del(String key){
         Jedis jedis = null;
         Long result = null;
         try {
