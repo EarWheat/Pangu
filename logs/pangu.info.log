@@ -1,8 +1,0 @@
-2020-06-26 16:57:02||INFO ||com.pangu.monitorTest.MonitorTest:55||Starting MonitorTest on bogon with PID 25632 (started by didi in /Users/didi/IdeaProjects/pangu)
-2020-06-26 16:57:02||INFO ||com.pangu.monitorTest.MonitorTest:651||No active profile set, falling back to default profiles: default
-2020-06-26 16:57:05||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
-2020-06-26 16:57:05||INFO ||o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:492||Autowired annotation is not supported on static methods: public static void com.pangu.springContext.SpringContextUtil.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException
-2020-06-26 16:57:05||INFO ||o.s.s.c.ThreadPoolTaskExecutor:171||Initializing ExecutorService 'applicationTaskExecutor'
-2020-06-26 16:57:06||INFO ||com.pangu.monitorTest.MonitorTest:61||Started MonitorTest in 4.829 seconds (JVM running for 6.479)
-2020-06-26 16:57:06||INFO ||com.pangu.monitorTest.MonitorTest:39||com.pangu.monitor.scheduled.Entity.MonitorEntity@59f93db8
-2020-06-26 16:57:07||INFO ||o.s.s.c.ThreadPoolTaskExecutor:208||Shutting down ExecutorService 'applicationTaskExecutor'

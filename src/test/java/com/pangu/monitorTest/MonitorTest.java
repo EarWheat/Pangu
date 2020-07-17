@@ -32,11 +32,11 @@ public class MonitorTest {
 
     @Test
     @RequestMapping("/")
-    public void monitor(){
+    public void monitor() throws Exception {
         MonitorEntity monitor = new MonitorEntity();
         monitor.setTitle("测试");
         monitor.setContent("监控测试");
         logger.info(monitor.toString());
-        monitorService.startMonitor(monitor);
+        monitorService.start(monitor);
     }
 }

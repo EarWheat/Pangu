@@ -8,5 +8,5 @@ import com.pangu.monitor.scheduled.Entity.MonitorEntity;
  * @desc: 监控服务类
  */
 public interface IMonitorService{
-    void startMonitor(MonitorEntity monitorEntity) throws Exception;
+    void start(MonitorEntity monitorEntity) throws Exception;
 }
