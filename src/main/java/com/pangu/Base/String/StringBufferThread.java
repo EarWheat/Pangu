@@ -1,48 +1,34 @@
 package com.pangu.Base.String;
 
+import java.util.concurrent.CountDownLatch;
+
 /*
  * @author:liuzhaolu
- * @createTime: 2020-07-25 15:20
- * @desc: 测试StringBuffer 线程安全
+ * @createTime: 2020-07-28 18:58
+ * @desc:
  */
-public class StringBufferThread implements Runnable{
+public class StringBufferThread implements Runnable {
 
-    private StringBuffer stringBuffer = new StringBuffer();
+    private StringBuffer stringBuffer;
+    private CountDownLatch countDownLatch;
+
+    public StringBufferThread(StringBuffer stringBuffer, CountDownLatch countDownLatch){
+        super();
+        this.stringBuffer = stringBuffer;
+        this.countDownLatch = countDownLatch;
+    }
 
     @Override
     public void run() {
-        // 同步锁方法
-//        printStr();
-        while (stringBuffer.length() < 100){
+        try {
+//            System.out.println(Thread.currentThread().getName() + "-就绪");
+            countDownLatch.countDown();
+            countDownLatch.await();
+            Thread.sleep((long) (Math.random() % 1000));
             stringBuffer.append("a");
-            System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length() + "=======" + stringBuffer.toString());
+//            System.out.println(Thread.currentThread().getName() + "-" + stringBuffer.length());
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
-
-    private synchronized void printStr(){
-        while (stringBuffer.length() < 10) {
-            stringBuffer.append("a");
-            System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length() + "=======" + stringBuffer.toString());
-        }
-        System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length() + "=======" + stringBuffer.toString());
-    }
-//        if(stringBuffer.length() == 0){
-//            stringBuffer.append(1);
-//            System.out.println(Thread.currentThread().getName() + " is empty");
-//        } else {
-//            int a = Integer.parseInt(stringBuffer.toString());
-//            while (a < 100){
-//                 a = a + 1;
-//                stringBuffer.append(a);
-//                System.out.println(Thread.currentThread().getName() + "======" + (a));
-//                try {
-//                    Thread.sleep(500);// 模拟网络延时
-//                } catch (InterruptedException e) {
-//                    // TODO Auto-generated catch block
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
-
 }
