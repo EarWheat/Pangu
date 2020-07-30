@@ -12,35 +12,28 @@ public class StringTest {
 
     private static StringBuffer stringBuffer = new StringBuffer();
     private static StringBuilder stringBuilder = new StringBuilder();
+    private static CountDownLatch countDownLatch = new CountDownLatch(4000);
     private static CountDownLatch countDownLatch1 = new CountDownLatch(1000);
     private static CountDownLatch countDownLatch2 = new CountDownLatch(1000);
 
     public static void main(String[] args) throws InterruptedException {
-//        // 同一个线程操作synchronized方法也是线程不安全的
-//        Thread thread1 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                // 线程1重复执行append方法
-//                while (stringBuffer.length() < 100) {
-//                    stringBuffer.append("a");
-//                    System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length());
-//                }
-//            }
-//        });
-//
-//        Thread thread2 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                // 线程2重复执行append方法
-//                while (stringBuffer.length() < 100) {
-//                    stringBuffer.append("a");
-//                    System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length());
-//                }
-//            }
-//        });
-//        thread1.start();
-//        thread2.start();
+        // 同一个线程操作N次
+        Thread thread1 = new Thread(new SingleBufferThread(stringBuffer,countDownLatch));
+        Thread thread2 = new Thread(new SingleBufferThread(stringBuffer,countDownLatch));
+        Thread thread3 = new Thread(new SingleBuilderThread(stringBuilder,countDownLatch));
+        Thread thread4 = new Thread(new SingleBuilderThread(stringBuilder,countDownLatch));
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        countDownLatch.await();
+        System.out.println("SingleThread StringBuffer:" + stringBuffer.length());
+        System.out.println("SingleThread StringBuilder:" + stringBuilder.length());
 
+        stringBuilder.delete(0,stringBuilder.length());
+        stringBuffer.delete(0,stringBuffer.length());
+
+        // 启动多个线程去执行
         for(int i = 0; i < 1000; i++){
             new Thread(new StringBufferThread(stringBuffer,countDownLatch1)).start();
         }
@@ -49,8 +42,9 @@ public class StringTest {
         }
         countDownLatch1.await();
         countDownLatch2.await();
-        System.out.println("-------------" + stringBuffer.length());
-        System.out.println("+++++++++++++" + stringBuilder.length());
+        System.out.println("stringBuffer:" + stringBuffer.length());
+        System.out.println("stringBuilder:" + stringBuilder.length());
+
 //        // 线程池模拟
 //        int corePoolSize = 100;
 //        int maximumPoolSize = 100;
@@ -66,18 +60,5 @@ public class StringTest {
 //                }
 //            });
 //        }
-
-//        // 线程不安全
-//        Runnable builderThread = new StringBuilderThread();
-//        Thread buildThread1 = new Thread(builderThread,"build-1");
-//        Thread buildThread2 = new Thread(builderThread, "build-2");
-//        buildThread1.start();
-//        buildThread2.start();
-
-//        Runnable ticket = new Ticket();
-//        Thread jack = new Thread(ticket,"jack");
-//        Thread maria = new Thread(ticket,"maria");
-//        jack.start();
-//        maria.start();
     }
 }

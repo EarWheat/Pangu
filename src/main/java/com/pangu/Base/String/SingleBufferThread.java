@@ -4,15 +4,15 @@ import java.util.concurrent.CountDownLatch;
 
 /*
  * @author:liuzhaolu
- * @createTime: 2020-07-28 18:58
+ * @createTime: 2020-07-29 19:09
  * @desc:
  */
-public class StringBufferThread implements Runnable {
+public class SingleBufferThread implements Runnable {
 
     private StringBuffer stringBuffer;
     private CountDownLatch countDownLatch;
 
-    public StringBufferThread(StringBuffer stringBuffer, CountDownLatch countDownLatch){
+    public SingleBufferThread(StringBuffer stringBuffer, CountDownLatch countDownLatch){
         super();
         this.stringBuffer = stringBuffer;
         this.countDownLatch = countDownLatch;
@@ -21,10 +21,11 @@ public class StringBufferThread implements Runnable {
     @Override
     public void run() {
         try {
-            countDownLatch.countDown();
-            countDownLatch.await();
-            Thread.sleep((long) (Math.random() % 1000));
-            stringBuffer.append("a");
+            for(int i = 0; i < 1000; i++){
+                Thread.sleep((long) (Math.random() % 1000));
+                stringBuffer.append("a");
+                countDownLatch.countDown();
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
