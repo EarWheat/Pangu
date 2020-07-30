@@ -21,10 +21,10 @@ public class StringBufferThread implements Runnable {
     @Override
     public void run() {
         try {
-            countDownLatch.countDown();
-            countDownLatch.await();
             Thread.sleep((long) (Math.random() % 1000));
             stringBuffer.append("a");
+            countDownLatch.countDown();
+//            System.out.println(Thread.currentThread().getName() + "-" + stringBuffer.length());
         } catch (Exception e){
             e.printStackTrace();
         }
