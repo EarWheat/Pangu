@@ -46,32 +46,5 @@ public class StringTest {
         System.out.println("stringBuffer:" + stringBuffer.length());
         System.out.println("stringBuilder:" + stringBuilder.length());
 
-//        Thread thread1 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                // 线程1重复执行append方法
-//                for(int i = 0; i< 100; i++){
-//                    stringBuffer.append("a");
-//                    countDownLatch.countDown();
-//                    System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length());
-//                }
-//            }
-//        });
-//
-//        Thread thread2 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                // 线程2重复执行append方法
-//                for (int i = 0; i < 100; i++){
-//                    stringBuffer.append("a");
-//                    countDownLatch.countDown();
-//                    System.out.println(Thread.currentThread().getName() + "======" + stringBuffer.length());
-//                }
-//            }
-//        });
-//        thread1.start();
-//        thread2.start();
-//        countDownLatch.await();
-//        System.out.println(stringBuffer.length());
     }
 }

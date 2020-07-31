@@ -1,5 +1,7 @@
 package com.pangu.Base.Map;
 
+import com.pangu.Base.String.Ticket;
+
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -10,7 +12,14 @@ import java.util.concurrent.*;
  */
 public class MapTest {
     private final static int DEFAULT_INITIAL_CAPACITY = 1 << 4;
-    private static int a = 0;
+    private static int times = 1000;
+    private static int a = 100;
+    private static int b = 0;
+    private static CountDownLatch countDownLatch = new CountDownLatch(times);
+    private static CountDownLatch mainCountDownLatch = new CountDownLatch(times);
+    private static int hashMapValue = 1;
+    private static int hashTableValue = 1;
+    private static int concurrentHashMapValue = 1;
 
     public static void main(String[] args) {
         HashMap<Object, Integer> hashMap = new HashMap<>();
@@ -38,9 +47,6 @@ public class MapTest {
 //        }
 
         // 验证线程安全性
-        int times = 1000;
-        CountDownLatch countDownLatch = new CountDownLatch(times);
-        CountDownLatch mainCountDownLatch = new CountDownLatch(times);
 //        int carPoolSize = 200;
 //        int maxThreadSize = 1000;
 //        long keepAlive = 30;
@@ -67,41 +73,52 @@ public class MapTest {
 //            });
 //        }
 
-        for (int i = 0; i < times; i++){
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        countDownLatch.countDown();
-                        countDownLatch.await();
-                        Thread.sleep((long) (Math.random() % 100000));
-                        hashMap.put("num", hashMap.get("num") + 1);
-                        hashtable.put("num", hashtable.get("num") + 1);
-                        concurrentHashMap.put("num", concurrentHashMap.get("num") + 1);
-                        synchronized (this){
-                            a++;
-                        }
-                        System.out.println(Thread.currentThread().getName() + "====执行完毕" );
-                        mainCountDownLatch.countDown();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start();
+        for(int i = 0; i < times; i++){
+            new Thread(new Ticket()).start();
         }
+
+//        for (int i = 0; i < times; i++){
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+////                        countDownLatch.countDown();
+////                        countDownLatch.await();
+//                        while (true) {
+//                            // 没有余票时，跳出循环
+//                            if (a <= 0) {
+//                                break;
+//                            }
+//                            b++;
+//                            a--;
+//                            System.out.println("显示出票信息：" + Thread.currentThread().getName()
+//                                    + "抢到第" + b + "张票，剩余" + a + "张票");
+//                        }
+//
+////                        hashMap.put("num", hashMap.get("num") + 1);
+////                        hashtable.put("num", hashtable.get("num") + 1);
+////                        concurrentHashMap.put("num", concurrentHashMap.get("num") + 1);
+////                        synchronized (this){
+////                            a++;
+////                        }
+////                        System.out.println(Thread.currentThread().getName() + "====执行完毕" );
+//                        mainCountDownLatch.countDown();
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }).start();
+//        }
         try {
-            mainCountDownLatch.await();
+//            mainCountDownLatch.await();
             System.out.println(a);
             System.out.println("hashMap:" + hashMap.get("num"));
             System.out.println("hashtable:" + hashtable.get("num"));
             System.out.println("concurrentHashMap:" + concurrentHashMap.get("num"));
-        } catch (InterruptedException e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-//    private synchronized int getSum(int num){
-//
-//    }
 
 }
