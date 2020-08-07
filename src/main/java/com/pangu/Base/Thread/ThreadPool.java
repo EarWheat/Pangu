@@ -13,7 +13,7 @@ public class ThreadPool {
         int corePoolSize = 5;
         int maximumPoolSize = 10;
         long keepAlive = 10;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAlive, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAlive, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10));
         StringBuffer stringBuffer = new StringBuffer();
         CountDownLatch countDownLatch = new CountDownLatch(100);
         SingleBufferThread singleBufferThread = new SingleBufferThread(stringBuffer,countDownLatch);
