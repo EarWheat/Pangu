@@ -4,6 +4,7 @@ import com.pangu.Base.String.Ticket;
 
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /*
  * @author:liuzhaolu
@@ -12,7 +13,7 @@ import java.util.concurrent.*;
  */
 public class MapTest {
     private final static int DEFAULT_INITIAL_CAPACITY = 1 << 4;
-    private static int times = 1000;
+    private static int times = 100000;
     private static int a = 100;
     private static int b = 0;
     private static CountDownLatch countDownLatch = new CountDownLatch(times);
@@ -47,70 +48,33 @@ public class MapTest {
 //        }
 
         // 验证线程安全性
-//        int carPoolSize = 200;
-//        int maxThreadSize = 1000;
-//        long keepAlive = 30;
-//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(carPoolSize,maxThreadSize,keepAlive, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(1));
-        hashMap.put("num",1);
-        hashtable.put("num",1);
-        concurrentHashMap.put("num",1);
-//        for(int i = 0; i  < times; i++){
-//            threadPoolExecutor.execute(()->{
-//                try {
-//                    countDownLatch.countDown();
-//                    countDownLatch.await();
-//                    Thread.sleep((long) (Math.random() % 100000));
-//                    int hashMapTemp = hashMap.get("num");
-//                    int hashTableTemp = hashtable.get("num");
-//                    int concurrentHashMapTemp = concurrentHashMap.get("num");
-//                    hashMap.put("num", hashMapTemp + 1);
-//                    hashtable.put("num", hashTableTemp + 1);
-//                    concurrentHashMap.put("num", concurrentHashMapTemp + 1);
-//                    mainCountDownLatch.countDown();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            });
-//        }
-
-        for(int i = 0; i < times; i++){
-            new Thread(new Ticket()).start();
+        int carePoolSize = 10;
+        int maxThreadSize = 20;
+        long keepAlive = 2;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(carePoolSize,maxThreadSize,keepAlive, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        AtomicInteger AiMap = new AtomicInteger(0);
+        AtomicInteger AiTable = new AtomicInteger(0);
+        AtomicInteger AiCHashMap = new AtomicInteger(0);
+        hashMap.put("num",AiMap.get());
+        hashtable.put("num",AiTable.get());
+        concurrentHashMap.put("num",AiCHashMap.get());
+        for(int i = 0; i  < times; i++){
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        hashMap.put(String.valueOf(i),AiMap.incrementAndGet());
+                        hashtable.put("num", AiTable.incrementAndGet());
+                        concurrentHashMap.put("num", AiCHashMap.incrementAndGet());
+                        mainCountDownLatch.countDown();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
-
-//        for (int i = 0; i < times; i++){
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-////                        countDownLatch.countDown();
-////                        countDownLatch.await();
-//                        while (true) {
-//                            // 没有余票时，跳出循环
-//                            if (a <= 0) {
-//                                break;
-//                            }
-//                            b++;
-//                            a--;
-//                            System.out.println("显示出票信息：" + Thread.currentThread().getName()
-//                                    + "抢到第" + b + "张票，剩余" + a + "张票");
-//                        }
-//
-////                        hashMap.put("num", hashMap.get("num") + 1);
-////                        hashtable.put("num", hashtable.get("num") + 1);
-////                        concurrentHashMap.put("num", concurrentHashMap.get("num") + 1);
-////                        synchronized (this){
-////                            a++;
-////                        }
-////                        System.out.println(Thread.currentThread().getName() + "====执行完毕" );
-//                        mainCountDownLatch.countDown();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }).start();
-//        }
         try {
-//            mainCountDownLatch.await();
+            mainCountDownLatch.await();
             System.out.println(a);
             System.out.println("hashMap:" + hashMap.get("num"));
             System.out.println("hashtable:" + hashtable.get("num"));
