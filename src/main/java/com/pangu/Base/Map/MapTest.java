@@ -63,7 +63,7 @@ public class MapTest {
                 @Override
                 public void run() {
                     try {
-                        hashMap.put(String.valueOf(i),AiMap.incrementAndGet());
+                        hashMap.put("num",AiMap.incrementAndGet());
                         hashtable.put("num", AiTable.incrementAndGet());
                         concurrentHashMap.put("num", AiCHashMap.incrementAndGet());
                         mainCountDownLatch.countDown();
