@@ -25,6 +25,11 @@ public class RestResult<T> implements Serializable {
         this.data = data;
     }
 
+    public RestResult(int errNo, String errMsg) {
+        this.errNo = errNo;
+        this.errMsg = errMsg;
+    }
+
     public RestResult(){
 
     }
@@ -58,7 +63,24 @@ public class RestResult<T> implements Serializable {
         return new RestResult<>(0, "success", data);
     }
 
+    public static <T> RestResult<T> successResult(){
+        return new RestResult<>(0, "success");
+    }
+
     public static <T> RestResult<T> failResult(int errNo, String errMsg, T data) {
         return new RestResult<>(errNo, errMsg, data);
+    }
+
+    public static <T> RestResult<T> failResult(ResultEnum resultEnum) {
+        int errNo = -1;
+        String errMsg = "";
+        if(resultEnum == ResultEnum.PARAM_ERROR){
+            errNo = -1;
+            errMsg = RestErrorMsg.PARAM_ERROR;
+        } else if(resultEnum == ResultEnum.EXCEPTION){
+            errNo = 999;
+            errMsg = RestErrorMsg.EXCEPTION;
+        }
+        return new RestResult<>(errNo, errMsg);
     }
 }

@@ -33,7 +33,7 @@ public class RestController {
 
     @RequestMapping(value = "/kefu")
     public RestResult<String> kefu() throws Exception {
-        String url = "http://10.157.136.234:8000/gulfstream/themis/v2/serviceControl/getKefuCompensateJudge";
+        String url = "xxxxxxx";
         JSONObject object = new JSONObject();
         object.put("order_id","87969391989219");
         object.put("district","03035");
