@@ -1,7 +1,6 @@
 package com.pangu.dataBaseTest;
 
-import com.pangu.redis.RedisPool;
-import com.pangu.redis.RedisUtil;
+import com.pangu.Redis.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

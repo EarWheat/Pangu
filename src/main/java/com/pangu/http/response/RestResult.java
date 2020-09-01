@@ -71,6 +71,10 @@ public class RestResult<T> implements Serializable {
         return new RestResult<>(errNo, errMsg, data);
     }
 
+    public static <T> RestResult<T> failResult(T data){
+        return new RestResult<>(-1,"error",data);
+    }
+
     public static <T> RestResult<T> failResult(ResultEnum resultEnum) {
         int errNo = -1;
         String errMsg = "";

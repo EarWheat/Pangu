@@ -4,7 +4,7 @@
 <configuration scan="true">
 
     <!-- 通过property标签,来存放key-value数据,便于后面的动态获取,提高程序的灵活性 -->
-    <property name="log-dir" value="logs" />
+    <property name="log-dir" value="classPath:/logs" />
     <property name="log-name-info" value="pangu.info" />
     <property name="log-name-error" value="pangu.error" />
     <property name="log-name-warn" value="pangu.warn" />
