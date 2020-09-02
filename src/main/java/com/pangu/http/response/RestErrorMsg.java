@@ -8,4 +8,7 @@ package com.pangu.http.response;
 public class RestErrorMsg {
     public static final String PARAM_ERROR = "Param Error";
     public static final String EXCEPTION = "Internal Error";
+    public static final String PARAM_EMPTY = "Param Empty";
+    public static final String LOGIN_ERROR = "Login Error";
+    public static final String LOGIN_SUCCESS = "Login Success";
 }

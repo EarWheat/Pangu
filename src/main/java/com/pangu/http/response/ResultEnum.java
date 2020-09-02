@@ -8,5 +8,6 @@ package com.pangu.http.response;
 public enum ResultEnum {
     LOGIN_ERROR,
     PARAM_ERROR,
+    PARAM_EMPTY,
     EXCEPTION,
 }

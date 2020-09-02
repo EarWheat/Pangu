@@ -84,6 +84,11 @@ public class RestResult<T> implements Serializable {
         } else if(resultEnum == ResultEnum.EXCEPTION){
             errNo = 999;
             errMsg = RestErrorMsg.EXCEPTION;
+        } else if(resultEnum == ResultEnum.PARAM_EMPTY){
+            errNo = 1;
+            errMsg = RestErrorMsg.PARAM_EMPTY;
+        } else if(resultEnum == ResultEnum.LOGIN_ERROR){
+            errMsg = RestErrorMsg.LOGIN_ERROR;
         }
         return new RestResult<>(errNo, errMsg);
     }
