@@ -11,4 +11,5 @@ public class RestErrorMsg {
     public static final String PARAM_EMPTY = "Param Empty";
     public static final String LOGIN_ERROR = "Login Error";
     public static final String LOGIN_SUCCESS = "Login Success";
+    public static final String USER_ONLINE = "User Online";
 }

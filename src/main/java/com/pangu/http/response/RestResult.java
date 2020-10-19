@@ -60,6 +60,15 @@ public class RestResult<T> implements Serializable {
 
 
     public static <T> RestResult<T> successResult(T data) {
+        if(data instanceof ResultEnum){
+            String dataInfo = "";
+            if(data == ResultEnum.USER_ONLINE){
+                dataInfo = RestErrorMsg.USER_ONLINE;
+            } else if(data == ResultEnum.LOGIN_SUCCESS){
+                dataInfo = RestErrorMsg.LOGIN_SUCCESS;
+            }
+            return new RestResult(0,"success",  dataInfo);
+        }
         return new RestResult<>(0, "success", data);
     }
 
