@@ -1,4 +1,4 @@
-package com.ruban.pangu.file;
+package com.ruban.pangu.File;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
