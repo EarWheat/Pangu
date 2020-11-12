@@ -30,18 +30,27 @@ public class FileReadUtil {
         this.file = new File(filePath);
     }
 
-    public T fileRead(DataProcess<T> dataProcess){
+    public Object fileRead(DataProcess<T> dataProcess){
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
-            byte[] read = new byte[1024];
-            while (fileInputStream.read(read) != -1){
-                dataProcess.process();
+            byte[] content = new byte[1024];
+            while (fileInputStream.read(content) != -1){
+                System.out.println("=======" + Arrays.toString(content));
+//                dataProcess.process(content);
             }
         } catch (FileNotFoundException e){
             logger.error("File Not Found,path:{}",filePath);
         } catch (Exception e){
             e.printStackTrace();
         }
-        return dataProcess.process();
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(FileReadUtil.class.getResource("/").getPath());
+        String filePath = "/Users/didi/IdeaProjects/pangu/src/main/java/com/ruban/pangu/File/WordCountText";
+        DataProcess dataProcess = new WordCount();
+        FileReadUtil fileReadUtil = new FileReadUtil(filePath);
+        fileReadUtil.fileRead(dataProcess);
     }
 }

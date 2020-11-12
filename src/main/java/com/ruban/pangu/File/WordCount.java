@@ -12,7 +12,8 @@ package com.ruban.pangu.File;
 public class WordCount extends DataProcess {
 
     @Override
-    public Object process(byte[] bytes) {
+    public Integer process(byte[] bytes) {
+
         return null;
     }
 }
