@@ -2,35 +2,33 @@ package com.ruban.pangu.File;
 
 /**
  * @author liuzhaoluliuzhaolu
- * @date 2020-11-10 20:10
+ * @date 2020-11-13 17:40
  * @desc
  * @prd
  * @Modification History:
  * Date         Author          Description
  * ------------------------------------------ *
  */
-public class WordCount extends DataProcess {
+public class CharCount extends DataProcess {
+    public Long charCount;
 
-
-    public Long wordCount;
-
-    public WordCount(){
-        this.wordCount = 0L;
+    public CharCount(){
+        this.charCount = 0L;
     }
 
     @Override
     public Long process(byte[] bytes) {
         String temp = new String(bytes);
-        temp.replaceAll("\n"," ");
-        String[] words = temp.split(" ");
-        if(words.length > 1){
-            wordCount += words.length;
+        for(int i = 0; i < temp.length();i++){
+            if(temp.charAt(i) != ' ' && temp.charAt(i) != '\n'){
+                charCount++;
+            }
         }
-        return wordCount;
+        return charCount;
     }
 
     @Override
     public Long length() {
-        return wordCount + 1;
+        return charCount;
     }
 }

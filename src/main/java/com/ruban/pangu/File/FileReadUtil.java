@@ -4,12 +4,9 @@ import org.apache.poi.ss.formula.functions.T;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -30,27 +27,46 @@ public class FileReadUtil {
         this.file = new File(filePath);
     }
 
-    public Object fileRead(DataProcess<T> dataProcess){
+    public void fileRead(DataProcess<T> dataProcess){
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             byte[] content = new byte[1024];
             while (fileInputStream.read(content) != -1){
-                System.out.println("=======" + Arrays.toString(content));
-//                dataProcess.process(content);
+                dataProcess.process(content);
             }
         } catch (FileNotFoundException e){
             logger.error("File Not Found,path:{}",filePath);
         } catch (Exception e){
             e.printStackTrace();
         }
-        return 0;
+    }
+
+    public void fileReadLine(DataProcess dataProcess){
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            FileReader reader = new FileReader(file);
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+
+            byte[] content = new byte[1024];
+            while (fileInputStream.read(content) != -1){
+                dataProcess.process(content);
+            }
+        } catch (FileNotFoundException e){
+            logger.error("File Not Found,path:{}",filePath);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
         System.out.println(FileReadUtil.class.getResource("/").getPath());
         String filePath = "/Users/didi/IdeaProjects/pangu/src/main/java/com/ruban/pangu/File/WordCountText";
-        DataProcess dataProcess = new WordCount();
+        WordCount wordCount = new WordCount();
         FileReadUtil fileReadUtil = new FileReadUtil(filePath);
-        fileReadUtil.fileRead(dataProcess);
+        fileReadUtil.fileRead(wordCount);
+        System.out.println("total Word:" + wordCount.length());
+        DataProcess charCount = new CharCount();
+        fileReadUtil.fileRead(charCount);
+        System.out.println("total Char:" + charCount.length());
     }
 }

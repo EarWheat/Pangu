@@ -13,4 +13,5 @@ import org.apache.poi.ss.formula.functions.T;
  */
 public abstract class DataProcess<T> {
     public abstract T process(byte[] bytes);
+    public abstract Long length();
 }
