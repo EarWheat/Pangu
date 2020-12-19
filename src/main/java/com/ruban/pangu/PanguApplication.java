@@ -1,7 +1,7 @@
 package com.ruban.pangu;
 
 import com.ruban.pangu.springContext.Config;
-import com.ruban.pangu.springContext.MqMessageListenerConfig;
+import com.ruban.pangu.Mq.MqMessageListenerConfig;
 import com.ruban.pangu.springContext.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

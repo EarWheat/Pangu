@@ -1,4 +1,4 @@
-package com.ruban.pangu.entity;
+package com.ruban.pangu.Entity;
 
 /*
  * @author:liuzhaolu

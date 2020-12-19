@@ -1,6 +1,4 @@
-package com.ruban.pangu.mq;
-
-import com.ruban.pangu.springContext.MqMessageListenerConfig;
+package com.ruban.pangu.Mq;
 
 /*
  * @author:liuzhaolu

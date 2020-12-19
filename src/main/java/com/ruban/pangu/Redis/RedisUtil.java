@@ -15,24 +15,24 @@ import redis.clients.jedis.Jedis;
 public class RedisUtil {
     private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 
-    @Autowired
-    private RedisPool redisPool;
+//    @Autowired
+//    private RedisPool redisPool;
+//
+//    private static Jedis jedis = null;
+//
+//    RedisUtil(){
+//        jedis = redisPool.getJedis();
+//    }
 
-    private static Jedis jedis = null;
-
-    RedisUtil(){
-        jedis = redisPool.getJedis();
-    }
-
-    // redis读
-    public static String get(String key){
-//        return "hello";
-        return jedis.get(key);
-    }
-
-    // redis写
-    public static String set(String key, String value){
-        new RedisUtil();
-        return jedis.set(key,value);
-    }
+//    // redis读
+//    public static String get(String key){
+////        return "hello";
+//        return jedis.get(key);
+//    }
+//
+//    // redis写
+//    public static String set(String key, String value){
+//        new RedisUtil();
+//        return jedis.set(key,value);
+//    }
 }

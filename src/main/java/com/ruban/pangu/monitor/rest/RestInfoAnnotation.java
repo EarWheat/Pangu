@@ -1,7 +1,7 @@
 package com.ruban.pangu.monitor.rest;
 
 
-import com.ruban.pangu.entity.RestEntity;
+import com.ruban.pangu.Entity.RestEntity;
 import com.ruban.pangu.monitor.mail.IMailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

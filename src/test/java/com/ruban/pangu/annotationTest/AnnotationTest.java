@@ -1,8 +1,7 @@
 package com.ruban.pangu.annotationTest;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ruban.pangu.annotation.AnnotationDemo;
-import com.ruban.pangu.entity.RestEntity;
+import com.ruban.pangu.Entity.RestEntity;
 import com.ruban.pangu.monitor.rest.RestInfo;
 import com.ruban.pangu.monitor.scheduled.annotation.Monitor;
 import org.junit.Test;
@@ -31,11 +30,6 @@ public class AnnotationTest {
     @Resource
     private RestEntity restEntity;
 
-    @Test
-    @AnnotationDemo("hello")
-    public void test() throws InterruptedException {
-        System.out.println("pqoe");
-    }
 
     @Test
     @RequestMapping("/")

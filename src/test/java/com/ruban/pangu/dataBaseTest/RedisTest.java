@@ -27,7 +27,7 @@ public class RedisTest {
     public void test() throws InterruptedException {
         System.out.println("++++++++"+host);
         logger.info("++++++++"+host);
-        RedisUtil.set("hello","world");
+//        RedisUtil.set("hello","world");
 //        System.out.println(RedisUtil.get("hello"));
     }
 }

@@ -1,5 +1,6 @@
 package com.ruban.pangu.springContext;
 
+import com.ruban.pangu.Mq.MqMessageListenerConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
