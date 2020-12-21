@@ -17,7 +17,6 @@ public class StartBean {
 
     @Bean
     public void StartSomething(){
-        System.out.println("Hello doSomeThine");
         Runnable runnable = new Runnable() {
             @lombok.SneakyThrows
             @Override
