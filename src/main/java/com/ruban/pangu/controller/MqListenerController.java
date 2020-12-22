@@ -1,5 +1,6 @@
 package com.ruban.pangu.controller;
 
+import com.ruban.pangu.Mq.MqMessageListener;
 import com.ruban.pangu.Mq.MqMessageListenerConfig;
 import com.ruban.pangu.http.response.RestResult;
 import org.springframework.stereotype.Component;
@@ -15,9 +16,14 @@ import org.springframework.stereotype.Component;
  */
 @MqMessageListenerConfig(topic = "pangu", consumerGroup = "zero")
 @Component
-public class MqListenerController {
+public class MqListenerController implements MqMessageListener {
 
     public RestResult consumer(Object object){
         return RestResult.successResult();
+    }
+
+    @Override
+    public Boolean exec() {
+        return null;
     }
 }
