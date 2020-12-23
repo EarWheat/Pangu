@@ -1,6 +1,6 @@
 package com.ruban.pangu.springContext;
 
-import com.ruban.pangu.Mq.MqMessageListenerConfig;
+import com.ruban.pangu.Mq.consumer.MqMessageListenerConfig;
 import org.junit.jupiter.api.Test;
 
 /*
@@ -35,7 +35,7 @@ class SpringContextUtilTest {
         Config config = (Config)SpringContextUtil.getBean("configDemoBean");
         System.out.println(config.getName());
         try {
-            MqMessageListenerConfig mqMessageListenerConfig = Class.forName("com.ruban.pangu.Mq.MqMessageListenerConfig").getAnnotation(MqMessageListenerConfig.class);
+            MqMessageListenerConfig mqMessageListenerConfig = Class.forName("com.ruban.pangu.Mq.consumer.MqMessageListenerConfig").getAnnotation(MqMessageListenerConfig.class);
             System.out.println(mqMessageListenerConfig.consumerGroup());
         } catch (ClassNotFoundException e){
             e.printStackTrace();

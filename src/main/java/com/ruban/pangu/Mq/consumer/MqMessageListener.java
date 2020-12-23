@@ -1,4 +1,4 @@
-package com.ruban.pangu.Mq;
+package com.ruban.pangu.Mq.consumer;
 
 /**
  * @author liuzhaoluliuzhaolu

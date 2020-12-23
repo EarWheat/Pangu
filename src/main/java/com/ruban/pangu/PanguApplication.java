@@ -1,7 +1,7 @@
 package com.ruban.pangu;
 
 import com.ruban.pangu.springContext.Config;
-import com.ruban.pangu.Mq.MqMessageListenerConfig;
+import com.ruban.pangu.Mq.consumer.MqMessageListenerConfig;
 import com.ruban.pangu.springContext.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,30 +27,30 @@ public class PanguApplication {
         // 注入上下文信息
         ApplicationContext context = SpringApplication.run(PanguApplication.class, args);
         SpringContextUtil.setApplicationContext(context);
-        logger.info("test Log Config");
-        // 获取所有bean信息
-        String[] beans = context.getBeanDefinitionNames();
-        for (String beanName:beans){
-            System.out.println(beanName);
-        }
-        System.out.println("=========================");
-        Map<String,Object> annotations = context.getBeansWithAnnotation(MqMessageListenerConfig.class);
-        Config config = (Config)annotations.get("config");  // 找到有该注解的类
-        MqMessageListenerConfig mqMessageListenerConfig = AnnotationUtils.findAnnotation(config.getClass(),MqMessageListenerConfig.class);
-        if(mqMessageListenerConfig != null){
-            System.out.println("topic:" + mqMessageListenerConfig.topic());
-            System.out.println("group:" + mqMessageListenerConfig.consumerGroup());
-        }
-        // 获取所有该注解的属性值
-        Iterator iterator = annotations.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry entry = (Map.Entry) iterator.next();
-            Object object = entry.getValue();
-            MqMessageListenerConfig mqMessageListenerConfig1 = AnnotationUtils.findAnnotation(object.getClass(),MqMessageListenerConfig.class);
-            System.out.println(entry.getKey());
-            if(mqMessageListenerConfig1 != null){
-                System.out.println("topic:"+mqMessageListenerConfig1.topic()+ "     group:"+mqMessageListenerConfig1.consumerGroup());
-            }
-        }
+//        logger.info("test Log Config");
+//        // 获取所有bean信息
+//        String[] beans = context.getBeanDefinitionNames();
+//        for (String beanName:beans){
+//            System.out.println(beanName);
+//        }
+//        System.out.println("=========================");
+//        Map<String,Object> annotations = context.getBeansWithAnnotation(MqMessageListenerConfig.class);
+//        Config config = (Config)annotations.get("config");  // 找到有该注解的类
+//        MqMessageListenerConfig mqMessageListenerConfig = AnnotationUtils.findAnnotation(config.getClass(),MqMessageListenerConfig.class);
+//        if(mqMessageListenerConfig != null){
+//            System.out.println("topic:" + mqMessageListenerConfig.topic());
+//            System.out.println("group:" + mqMessageListenerConfig.consumerGroup());
+//        }
+//        // 获取所有该注解的属性值
+//        Iterator iterator = annotations.entrySet().iterator();
+//        while (iterator.hasNext()){
+//            Map.Entry entry = (Map.Entry) iterator.next();
+//            Object object = entry.getValue();
+//            MqMessageListenerConfig mqMessageListenerConfig1 = AnnotationUtils.findAnnotation(object.getClass(),MqMessageListenerConfig.class);
+//            System.out.println(entry.getKey());
+//            if(mqMessageListenerConfig1 != null){
+//                System.out.println("topic:"+mqMessageListenerConfig1.topic()+ "     group:"+mqMessageListenerConfig1.consumerGroup());
+//            }
+//        }
     }
 }

@@ -1,4 +1,4 @@
-package com.ruban.pangu.Mq;
+package com.ruban.pangu.Mq.consumer;
 
 import org.springframework.stereotype.Component;
 

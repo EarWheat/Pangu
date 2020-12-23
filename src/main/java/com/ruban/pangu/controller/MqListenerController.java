@@ -1,7 +1,7 @@
 package com.ruban.pangu.controller;
 
-import com.ruban.pangu.Mq.MqMessageListener;
-import com.ruban.pangu.Mq.MqMessageListenerConfig;
+import com.ruban.pangu.Mq.consumer.MqMessageListener;
+import com.ruban.pangu.Mq.consumer.MqMessageListenerConfig;
 import com.ruban.pangu.http.response.RestResult;
 import org.springframework.stereotype.Component;
 
