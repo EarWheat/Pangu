@@ -1,4 +1,4 @@
-package com.ruban.pangu.http.response;
+package com.ruban.pangu.Http.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

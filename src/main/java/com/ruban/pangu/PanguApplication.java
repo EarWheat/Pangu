@@ -1,8 +1,5 @@
 package com.ruban.pangu;
 
-import com.ruban.pangu.springContext.Config;
-import com.ruban.pangu.Mq.consumer.MqMessageListenerConfig;
-import com.ruban.pangu.springContext.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +23,6 @@ public class PanguApplication {
     public static void main(String[] args) {
         // 注入上下文信息
         ApplicationContext context = SpringApplication.run(PanguApplication.class, args);
-        SpringContextUtil.setApplicationContext(context);
 //        logger.info("test Log Config");
 //        // 获取所有bean信息
 //        String[] beans = context.getBeanDefinitionNames();

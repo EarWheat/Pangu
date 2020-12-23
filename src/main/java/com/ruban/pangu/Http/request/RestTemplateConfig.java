@@ -1,4 +1,4 @@
-package com.ruban.pangu.http.request;
+package com.ruban.pangu.Http.request;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;

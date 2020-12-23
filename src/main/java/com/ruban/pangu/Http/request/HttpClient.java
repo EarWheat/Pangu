@@ -1,4 +1,4 @@
-package com.ruban.pangu.http.request;
+package com.ruban.pangu.Http.request;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

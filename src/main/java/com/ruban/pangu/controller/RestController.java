@@ -2,8 +2,8 @@ package com.ruban.pangu.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ruban.pangu.Entity.RestEntity;
-import com.ruban.pangu.http.request.HttpClient;
-import com.ruban.pangu.http.response.RestResult;
+import com.ruban.pangu.Http.request.HttpClient;
+import com.ruban.pangu.Http.response.RestResult;
 import com.ruban.pangu.monitor.rest.RestCostTime;
 import com.ruban.pangu.monitor.rest.RestInfo;
 import org.springframework.http.HttpHeaders;

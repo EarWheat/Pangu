@@ -31,8 +31,8 @@ logging:
 
 
 kafka:
-  bootstrap:
-    servers: 9000
-  enable:
-    auto:
-      commit: true
+  servers: 127.0.0.1:9092
+  autoCommit: true
+  autoCommitInterval: 1000
+  sessionTimeOut: 30000
+  autoOffsetReset: earliest

@@ -1,10 +1,13 @@
 package com.ruban.pangu.Mq.consumer;
 
-import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.context.EmbeddedValueResolverAware;
+import com.ruban.pangu.Util.PropertiesUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringValueResolver;
 
+import javax.annotation.Resource;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -16,16 +19,20 @@ import java.util.Properties;
  * Date         Author          Description
  * ------------------------------------------ *
  */
-@Component
 public class MqMessageEngine{
 
-    // 获取配置文件
-    private StringValueResolver stringValueResolver;
+    @Autowired
+    private PropertiesUtil propertiesUtil;
 
-    MqMessageEngine() {
-//        MqMessageProperties mqMessageProperties = new MqMessageProperties();
-//        System.out.println("=====" + mqMessageProperties.toString());
+    MqMessageEngine(MqMessageProperties mqMessageProperties) {
+        System.out.println("=====mqMessageProperties:" + mqMessageProperties.toString());
     }
+
+    @Bean
+    public MqMessageProperties mqMessageProperties(){
+        return new MqMessageProperties();
+    }
+
 
 
 }
