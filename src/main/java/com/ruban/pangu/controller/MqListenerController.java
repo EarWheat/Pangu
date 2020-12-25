@@ -3,6 +3,7 @@ package com.ruban.pangu.controller;
 import com.ruban.pangu.Mq.consumer.MqMessageListener;
 import com.ruban.pangu.Mq.consumer.MqMessageListenerConfig;
 import com.ruban.pangu.Http.response.RestResult;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,7 +24,8 @@ public class MqListenerController implements MqMessageListener {
     }
 
     @Override
-    public Boolean exec() {
-        return null;
+    public RestResult exec(ConsumerRecord<String, String> record) {
+        System.out.println("===========record:" + record.toString());
+        return RestResult.successResult(record);
     }
 }

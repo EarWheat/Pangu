@@ -26,6 +26,8 @@ import java.util.Properties;
 public class MqMessageProperties {
 
     // 获取配置文件
+    private String topic;
+    private String group;
     private String servers;
     private String autoCommit;
     private String autoCommitInterval;

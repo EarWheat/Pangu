@@ -73,4 +73,8 @@ public class MqMessageListenerContainer implements ApplicationContextAware {
         return mqMessageListenerContainerMap.get(topic).get(group);
     }
 
+    public static Map<String, Map<String, MqMessageListener>> getMqMessageListenerContainerMap(){
+        return mqMessageListenerContainerMap;
+    }
+
 }

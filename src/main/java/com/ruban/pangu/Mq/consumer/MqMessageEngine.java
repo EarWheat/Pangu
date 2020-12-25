@@ -1,6 +1,7 @@
 package com.ruban.pangu.Mq.consumer;
 
 import com.ruban.pangu.Util.PropertiesUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,10 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -21,11 +26,26 @@ import java.util.Properties;
  */
 public class MqMessageEngine{
 
-    @Autowired
-    private PropertiesUtil propertiesUtil;
-
     MqMessageEngine(MqMessageProperties mqMessageProperties) {
         System.out.println("=====mqMessageProperties:" + mqMessageProperties.toString());
+        int corePoolSize = 10;
+        int maximumPoolSize = 20;
+        long keepAliveTime = 10000;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        Map<String, Map<String, MqMessageListener>> mqMessageListener = MqMessageListenerContainer.getMqMessageListenerContainerMap();
+        for(Map.Entry listener : mqMessageListener.entrySet()){
+            String topic = (String) listener.getKey();
+            Map<String, MqMessageListener> listenerClazz = (Map<String, MqMessageListener>) listener.getValue();
+            for(Map.Entry listenerConsumer: listenerClazz.entrySet()){
+                String group = (String) listenerConsumer.getKey();
+                MqMessageListener messageListener = (MqMessageListener) listenerConsumer.getValue();
+                if(StringUtils.isNotBlank(topic) && StringUtils.isNotBlank(group)){
+                    mqMessageProperties.setTopic(topic);
+                    mqMessageProperties.setGroup(group);
+                    threadPoolExecutor.execute(new MqMessageConsumerRunnable(mqMessageProperties, messageListener));
+                }
+            }
+        }
     }
 
     @Bean
