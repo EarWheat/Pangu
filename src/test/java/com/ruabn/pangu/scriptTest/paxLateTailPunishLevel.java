@@ -1,4 +1,4 @@
-package com.pangu.scriptTest;
+package com.ruabn.pangu.scriptTest;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;

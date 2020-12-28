@@ -1,4 +1,4 @@
-package com.pangu.dataBaseTest;
+package com.ruabn.pangu.dataBaseTest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

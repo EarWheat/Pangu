@@ -1,4 +1,4 @@
-package com.pangu.annotationTest;
+package com.ruabn.pangu.annotationTest;
 
 import com.pangu.Monitor.mail.IMailService;
 import com.pangu.Monitor.rest.RestCostTime;

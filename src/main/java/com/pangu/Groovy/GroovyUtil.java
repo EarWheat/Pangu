@@ -2,7 +2,6 @@ package com.pangu.Groovy;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyClassLoader;
-import groovy.lang.GroovyObject;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.codehaus.groovy.runtime.InvokerHelper;

@@ -1,13 +1,5 @@
 package com.pangu.Redis;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-
 /*
  * @author:liuzhaolu
  * @createTime: 2019-12-26 15:59

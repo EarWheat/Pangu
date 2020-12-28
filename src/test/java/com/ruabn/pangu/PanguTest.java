@@ -1,4 +1,4 @@
-package com.pangu;
+package com.ruabn.pangu;
 
 
 import com.alibaba.fastjson.JSON;
