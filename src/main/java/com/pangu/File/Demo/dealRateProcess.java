@@ -1,4 +1,4 @@
-package com.pangu.FileTest;
+package com.pangu.File.Demo;
 
 import com.pangu.File.FileProcessLine;
 
@@ -31,12 +31,7 @@ public class dealRateProcess extends FileProcessLine {
         for(String str : data){
             Map<String, Object> json = new HashMap<>();
             String[] kv = str.split(",");
-            json.put("completion_rate_control_switch",1);
-            json.put("level_one_ban_time",1);
-            json.put("level_two_ban_time",2);
-            json.put("level_three_ban_time",3);
-            json.put("level_four_ban_time",7);
-            json.put("min_completion_rate",percent2Double(kv[1]));
+            json.put("value",percent2Double(kv[1]));
             result.put(kv[0], json);
         }
         return result;
