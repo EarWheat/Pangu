@@ -2,15 +2,14 @@ package com.pangu.File;
 
 /**
  * @author liuzhaoluliuzhaolu
- * @date 2020-11-10 20:09
+ * @date 2020/12/30 上午10:53
  * @desc
  * @prd
  * @Modification History:
  * Date         Author          Description
  * ------------------------------------------ *
  */
-public class FileReadTest {
-    public static void main(String[] args) {
-
-    }
+public abstract class FileProcessLine {
+    public abstract void readLine(String line);
+    public abstract Object process();
 }

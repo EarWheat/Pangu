@@ -1,5 +1,6 @@
 package com.pangu.File;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.poi.ss.formula.functions.T;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class FileReadUtil {
         this.file = new File(filePath);
     }
 
-    public void fileRead(DataProcess<T> dataProcess){
+    public void fileRead(DataProcess dataProcess){
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             byte[] content = new byte[1024];
@@ -39,32 +40,35 @@ public class FileReadUtil {
         }
     }
 
-    public void fileReadLine(DataProcess dataProcess){
+    public Object fileReadLine(FileProcessLine dataProcess){
         try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            FileReader reader = new FileReader(file);
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-
-            byte[] content = new byte[1024];
-            while (fileInputStream.read(content) != -1){
-                dataProcess.process(content);
+            FileInputStream inputStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+            String line;
+            while ((line = reader.readLine()) != null){
+                dataProcess.readLine(line);
             }
+            Object result = dataProcess.process();
+            System.out.println(JSONObject.toJSONString(result));
+            return result;
         } catch (FileNotFoundException e){
             logger.error("File Not Found,path:{}",filePath);
         } catch (Exception e){
             e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
-        System.out.println(FileReadUtil.class.getResource("/").getPath());
-        String filePath = "/Users/didi/IdeaProjects/pangu/src/main/java/com/ruban/pangu/File/WordCountText";
-        WordCount wordCount = new WordCount();
-        FileReadUtil fileReadUtil = new FileReadUtil(filePath);
-        fileReadUtil.fileRead(wordCount);
-        System.out.println("total Word:" + wordCount.length());
-        DataProcess charCount = new CharCount();
-        fileReadUtil.fileRead(charCount);
-        System.out.println("total Char:" + charCount.length());
+//        System.out.println(FileReadUtil.class.getResource("/").getPath());
+//        String filePath = "/Users/didi/IdeaProjects/pangu/src/main/java/com/ruban/pangu/File/WordCountText";
+//        WordCount wordCount = new WordCount();
+//        FileReadUtil fileReadUtil = new FileReadUtil(filePath);
+//        fileReadUtil.fileRead(wordCount);
+//        System.out.println("total Word:" + wordCount.length());
+//        DataProcess charCount = new CharCount();
+//        fileReadUtil.fileRead(charCount);
+//        System.out.println("total Char:" + charCount.length());
     }
 }

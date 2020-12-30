@@ -1,4 +1,4 @@
-package com.ruabn.pangu.annotationTest;
+package com.pangu.annotationTest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.pangu.Entity.RestEntity;

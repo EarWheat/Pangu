@@ -1,30 +1,70 @@
-# Pangu
-Pangu SDK
 
-## 简介
-1、个人实战经验积累，打算编写一个盘古项目，开天劈地，提供基础功能SDK。希望做成SpringBoot的形式，通过一个注解引入盘古SDK，SDK集成基础功能，sl4j，MQ，Es等
+@[TOC](目录)
 
-## 使用说明
-step1:maven导入SDK
-```
-<dependency>
-   <groupId>com.pangu</groupId>
-   <artifactId>pangu</artifactId>
-   <version>1.0.0-RELEASE</version>
-</dependency>
+# 一、盘古简介
+
+​      盘古是一款涵盖**业务常用功能**（诸如Http、MQ、Redis、Kafka等）的SDK。是本人在学习的时候，总结积累的。通过pom包的形式可以引入项目，可以有效的避免重复在轮子的工作。
+# 二、使用盘古
+
+ 1. 下载pangu包
+
+```powershell
+git clone git@github.com:EarWheat/Pangu.git
 ```
 
-step2:引入注解
+ 2. 安装pom包到本地maven仓库
 
-## 功能说明
-1、RestfulResult
-基于Restful格式返回的Json字符串。
-使用示例：
-```
-JSONObject object = JSON.parseObject("{\"errno\":0,\"errmsg\":\"SUCCESS\",\"data\":\"hello\"}");
-RestFulResult restFulResult1 = RestFulResult.successResult(object);
-System.out.println(JSONObject.toJSONString(restFulResult1));
-RestFulResult restFulResult2 = RestFulResult.failResult(10000,"ERROR","Test EXCEPTION");
-System.out.println(JSONObject.toJSONString(restFulResult2));
+```powershell
+# 进入Pangu所在根目录执行mvn命令，需提前安装maven
+mvn clean 
+mvn install
 ```
 
+ 3. 引入POM包
+
+```
+		<dependency>
+			<groupId>com.pangu</groupId>
+			<artifactId>pangu</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
+```
+ 2. 在启动类上或者xml配置中配置扫描自动装载pangu中的内容为Bean
+
+```java
+@SpringBootApplication
+@ComponentScan(value = "com.pangu")
+@ComponentScan(value = "com.education")
+public class ConfuciusApplication {
+	public static void main(String[] args) {
+	SpringApplication.run(ConfuciusApplication.class, args);
+	}
+}
+```
+# 三、盘古功能介绍
+## 3.1 MQ使用
+
+ 1. 第一步实现MqMessageListener接口。
+ 2. 添加@MqMessageListenerConfig注解。
+ 3. 注册为Bean
+
+```java
+@MqMessageListenerConfig(topic = "confucius", consumerGroup = "confucius_consumer")
+@Component
+public class ConfuciusConsumer implements MqMessageListener {
+    @Override
+    public RestResult exec(ConsumerRecord<String, String> record) {
+        System.out.println("do something service" + record.toString());
+        return RestResult.successResult();
+    }
+}
+```
+底层实现为Kafka，可在exec中实现自己的消费逻辑，消费的记录为Kafka的ConsumerRecord类。另外如果需要自定义Kafka配置，只需要在配置文件中添加对应配置即可
+
+```powershell
+kafka.servers=127.0.0.1:9092
+kafka.auto-commit=true
+kafka.auto-commit-interval=1000
+kafka.session-time-out=30000
+kafka.auto-offset-reset=earliest
+```

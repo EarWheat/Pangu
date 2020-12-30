@@ -1,4 +1,4 @@
-package com.ruabn.pangu.monitorTest;
+package com.pangu.monitorTest;
 
 import com.pangu.Monitor.scheduled.Entity.MonitorEntity;
 import com.pangu.Monitor.scheduled.service.IMonitorService;

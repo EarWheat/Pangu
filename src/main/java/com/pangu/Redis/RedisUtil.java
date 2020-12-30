@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class RedisUtil {
-    private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
-
 //    @Autowired
 //    private RedisPool redisPool;
 //
@@ -22,7 +20,7 @@ public class RedisUtil {
 //        jedis = redisPool.getJedis();
 //    }
 
-//    // redis读
+    // redis读
 //    public static String get(String key){
 ////        return "hello";
 //        return jedis.get(key);
@@ -30,7 +28,6 @@ public class RedisUtil {
 //
 //    // redis写
 //    public static String set(String key, String value){
-//        new RedisUtil();
 //        return jedis.set(key,value);
 //    }
 }

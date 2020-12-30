@@ -1,4 +1,4 @@
-package com.ruabn.pangu.annotationTest;
+package com.pangu.annotationTest;
 
 import com.pangu.Monitor.rest.RestCostTime;
 import org.springframework.stereotype.Service;

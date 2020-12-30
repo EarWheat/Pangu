@@ -1,4 +1,4 @@
-package com.pangu.Mq.Demo;
+package com.pangu.Mq.demo;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

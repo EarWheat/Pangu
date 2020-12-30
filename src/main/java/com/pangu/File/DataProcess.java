@@ -9,7 +9,8 @@ package com.pangu.File;
  * Date         Author          Description
  * ------------------------------------------ *
  */
-public abstract class DataProcess<T> {
-    public abstract T process(byte[] bytes);
+public abstract class DataProcess {
+    public abstract void read(Object line);
+    public abstract Object process(Object bytes);
     public abstract Long length();
 }
