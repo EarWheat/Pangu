@@ -23,11 +23,11 @@ mvn install
  3. 引入POM包
 
 ```
-		<dependency>
-			<groupId>com.pangu</groupId>
-			<artifactId>pangu</artifactId>
-			<version>1.0.0-RELEASE</version>
-		</dependency>
+<dependency>
+	<groupId>com.pangu</groupId>
+	<artifactId>pangu</artifactId>
+	<version>1.0.0-RELEASE</version>
+</dependency>
 ```
  2. 在启动类上或者xml配置中配置扫描自动装载pangu中的内容为Bean
 
@@ -37,17 +37,24 @@ mvn install
 @ComponentScan(value = "com.education")
 public class ConfuciusApplication {
 	public static void main(String[] args) {
-	SpringApplication.run(ConfuciusApplication.class, args);
+	    SpringApplication.run(ConfuciusApplication.class, args);
 	}
 }
 ```
 # 三、盘古功能介绍
 ## 3.1 MQ使用
 
- 1. 第一步实现MqMessageListener接口。
- 2. 添加@MqMessageListenerConfig注解。
- 3. 注册为Bean
-
+ 1. 添加Kafka相关配置
+ 2. 实现MqMessageListener接口。
+ 3. 添加@MqMessageListenerConfig注解。
+ 4. 注册为Bean
+```powershell
+kafka.servers=127.0.0.1:9092
+kafka.auto-commit=true
+kafka.auto-commit-interval=1000
+kafka.session-time-out=30000
+kafka.auto-offset-reset=earliest
+```
 ```java
 @MqMessageListenerConfig(topic = "confucius", consumerGroup = "confucius_consumer")
 @Component
@@ -59,12 +66,5 @@ public class ConfuciusConsumer implements MqMessageListener {
     }
 }
 ```
-底层实现为Kafka，可在exec中实现自己的消费逻辑，消费的记录为Kafka的ConsumerRecord类。另外如果需要自定义Kafka配置，只需要在配置文件中添加对应配置即可
+底层实现为Kafka，可在exec中实现自己的消费逻辑，消费的记录为Kafka的ConsumerRecord类。
 
-```powershell
-kafka.servers=127.0.0.1:9092
-kafka.auto-commit=true
-kafka.auto-commit-interval=1000
-kafka.session-time-out=30000
-kafka.auto-offset-reset=earliest
-```
