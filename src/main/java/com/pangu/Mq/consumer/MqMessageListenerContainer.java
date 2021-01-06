@@ -58,7 +58,6 @@ public class MqMessageListenerContainer implements ApplicationContextAware {
                 }
             }
         }
-        System.out.println("=========="+JSONObject.toJSONString(mqMessageListenerContainerMap));
     }
 
     /**

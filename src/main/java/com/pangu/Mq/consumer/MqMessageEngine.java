@@ -1,6 +1,8 @@
 package com.pangu.Mq.consumer;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Map;
@@ -18,6 +20,7 @@ import java.util.concurrent.TimeUnit;
  * ------------------------------------------ *
  */
 public class MqMessageEngine{
+    private static final Logger logger = LoggerFactory.getLogger(MqMessageEngine.class);
 
     MqMessageEngine(MqMessageProperties mqMessageProperties) {
         int corePoolSize = 10;

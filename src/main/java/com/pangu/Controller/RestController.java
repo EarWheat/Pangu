@@ -1,13 +1,19 @@
 package com.pangu.Controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pangu.Base.Context.PanguApplicationContext;
 import com.pangu.Http.request.HttpClient;
 import com.pangu.Http.response.RestResult;
 import com.pangu.Monitor.rest.RestInfo;
 import com.pangu.Entity.RestEntity;
 import com.pangu.Monitor.rest.RestCostTime;
+import com.pangu.Redis.RedisUtil;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RequestMapping;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import javax.annotation.Resource;
 
@@ -16,18 +22,26 @@ import javax.annotation.Resource;
  * @createTime: 2020-06-12 18:27
  * @desc:
  */
-@RestInfo
 @org.springframework.web.bind.annotation.RestController
+@SpringBootApplication
 public class RestController {
-
-    @Resource
-    private RestEntity restEntity;
 
     @RestCostTime
     @RequestMapping(value = "/test")
     public RestResult<JSONObject> restInfo(){
+        ApplicationContext context = PanguApplicationContext.getApplicationContext();
+        String[] beans = context.getBeanDefinitionNames();
+        for (String beanName:beans){
+            System.out.println(beanName);
+        }
+        JedisPool jedisPool = PanguApplicationContext.getBean("redisPoolFactory");
+        Jedis jedis = jedisPool.getResource();
+        jedis.set("hello","zero");
+        System.out.println("=========================" + jedis.get("hello"));
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("extra",restEntity.getExtra());
+        jsonObject.put("extra",jedis.get("hello"));
+        RedisUtil.set("redis","Test redisUtil");
+        jsonObject.put("redis", RedisUtil.get("redis"));
         return RestResult.successResult(jsonObject);
     }
 

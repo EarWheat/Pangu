@@ -43,7 +43,7 @@ public class dealRateProcess extends FileProcessLine {
     }
 
     public Double percent2Double(String percent){
-        String result = "0.".concat(percent.substring(0,1));
+        String result = "0.".concat(percent.substring(0,2));
         return Double.parseDouble(result);
     }
 }

@@ -1,11 +1,13 @@
 package com.pangu.Redis;
 
 import com.pangu.Http.request.HttpClient;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -26,12 +28,13 @@ import java.util.Map;
 public class RedisPoolContainer {
     private static final Logger logger = LoggerFactory.getLogger(RedisPoolContainer.class);
 
+    private JedisPool jedisPool = null;
+
     @Resource
     private RedisProperties redisProperties;
 
     @Bean
     public JedisPool redisPoolFactory(){
-        JedisPool jedisPool = null;
         try {
             String host = redisProperties.getHost();
             int port = Integer.parseInt(redisProperties.getPort());
@@ -42,11 +45,23 @@ public class RedisPoolContainer {
             JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
             jedisPoolConfig.setMaxIdle(jedisPoolConfiguration.getMaxIdle());
             jedisPoolConfig.setMaxWaitMillis(jedisPoolConfiguration.getMaxWait());
-            jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
+            if(StringUtils.isNotBlank(password)){
+                jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
+            } else {
+                jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout);
+            }
         } catch (Exception e) {
             logger.error("Jedis pool initialize error:" + e);
         }
         return jedisPool;
     }
+
+//    @Bean(name = "jedisResource")
+//    public Jedis getJedisResource(){
+//        if(jedisPool == null){
+//            jedisPool = redisPoolFactory();
+//        }
+//        return jedisPool.getResource();
+//    }
 
 }
