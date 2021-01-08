@@ -56,12 +56,12 @@ public class RedisPoolContainer {
         return jedisPool;
     }
 
-//    @Bean(name = "jedisResource")
-//    public Jedis getJedisResource(){
-//        if(jedisPool == null){
-//            jedisPool = redisPoolFactory();
-//        }
-//        return jedisPool.getResource();
-//    }
+    @Bean(name = "jedisResource")
+    public Jedis jedisResource(){
+        if(jedisPool == null){
+            jedisPool = redisPoolFactory();
+        }
+        return jedisPool.getResource();
+    }
 
 }

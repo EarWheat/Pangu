@@ -68,3 +68,29 @@ public class ConfuciusConsumer implements MqMessageListener {
 ```
 底层实现为Kafka，可在exec中实现自己的消费逻辑，消费的记录为Kafka的ConsumerRecord类。
 
+
+## 3.2 Redis封装
+
+ 1. 添加redis相关配置
+ 2. 直接使用RedisUtil类
+
+```powershell
+# redis
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=
+spring.redis.database=0
+spring.redis.jedis.pool.max-active=50
+spring.redis.jedis.pool.max-wait=3000
+spring.redis.jedis.pool.max-idle=20
+spring.redis.jedis.pool.min-idle=2
+spring.redis.timeout=5000
+```
+```java
+    @RequestMapping("/redisInfo")
+    public RestResult getRedisInfo(){
+        RedisUtil.set("name","Confucius");
+        String hello = "Hello!".concat(RedisUtil.get("name"));
+        return RestResult.successResult(hello);
+    }
+```
