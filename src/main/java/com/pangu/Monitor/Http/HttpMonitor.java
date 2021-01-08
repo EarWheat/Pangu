@@ -1,4 +1,4 @@
-package com.pangu.Monitor.rest;
+package com.pangu.Monitor.Http;
 
 import java.lang.annotation.*;
 
@@ -14,5 +14,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 //注解作用的位置，ElementType.METHOD表示该注解仅能作用于方法上
 @Target({ElementType.TYPE, ElementType.METHOD})
-public @interface RestCostTime {
+public @interface HttpMonitor {
 }

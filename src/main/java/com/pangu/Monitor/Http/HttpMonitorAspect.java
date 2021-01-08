@@ -1,5 +1,6 @@
-package com.pangu.Monitor.rest;
+package com.pangu.Monitor.Http;
 
+import com.alibaba.fastjson.JSONObject;
 import com.pangu.Monitor.mail.MailService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -23,20 +24,20 @@ import java.util.Map;
  */
 @Component
 @Aspect
-public class RestCostTimeAspect {
+public class HttpMonitorAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(RestCostTimeAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(HttpMonitorAspect.class);
 
     @Resource
     private MailService mailService;
     /**
      * @Pointcut声明了切点（这里的切点是我们自定义的注解类），
      */
-    @Pointcut("@annotation(com.pangu.Monitor.rest.RestCostTime)")
+    @Pointcut("@annotation(com.pangu.Monitor.Http.HttpMonitor)")
     private void annotationPointcut() {}
 
 
-    @Before(value = "@annotation(com.pangu.Monitor.rest.RestCostTime)")
+    @Before(value = "@annotation(com.pangu.Monitor.Http.HttpMonitor)")
     public void doBefore(JoinPoint joinPoint) {
         //获取到请求的属性
         ServletRequestAttributes attributes =
@@ -70,11 +71,9 @@ public class RestCostTimeAspect {
         map.put("requestMethod", request.getMethod());
         map.put("requestParam",Arrays.toString(pjp.getArgs()));
         map.put("requestCostTime", String.valueOf(System.currentTimeMillis() - start));
-        mailService.sendSimpleMail("554725722@qq.com","RestInfoMonitor",map.toString());
+//        mailService.sendSimpleMail("554725722@qq.com","RestInfoMonitor",map.toString());
         Object result = pjp.proceed();
-        System.out.println("requestCostTime:" + (System.currentTimeMillis() - start));
-        logger.info("requestCostTime:" + (System.currentTimeMillis() - start));
-        logger.info("============"+map.toString());
+        logger.info("Http request:{}", JSONObject.toJSONString(map));
         return result;
     }
 

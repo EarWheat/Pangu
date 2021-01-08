@@ -4,9 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.pangu.Base.Context.PanguApplicationContext;
 import com.pangu.Http.request.HttpClient;
 import com.pangu.Http.response.RestResult;
-import com.pangu.Monitor.rest.RestInfo;
-import com.pangu.Entity.RestEntity;
-import com.pangu.Monitor.rest.RestCostTime;
+import com.pangu.Monitor.Http.HttpMonitor;
 import com.pangu.Redis.RedisUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +12,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RequestMapping;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-
-import javax.annotation.Resource;
 
 /*
  * @author:liuzhaolu
@@ -26,9 +22,9 @@ import javax.annotation.Resource;
 @SpringBootApplication
 public class RestController {
 
-    @RestCostTime
+    @HttpMonitor
     @RequestMapping(value = "/test")
-    public RestResult<JSONObject> restInfo(){
+    public RestResult<JSONObject> restInfo() throws InterruptedException {
         ApplicationContext context = PanguApplicationContext.getApplicationContext();
         String[] beans = context.getBeanDefinitionNames();
         for (String beanName:beans){
