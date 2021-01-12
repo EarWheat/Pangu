@@ -17,8 +17,52 @@ public class RedisUtil {
         jedis.set(key,value);
     }
 
+    /**
+     * 设置键值对并设置过期时间
+     * @param key
+     * @param seconds
+     * @param value
+     */
+    public static void setex(String key, int seconds, String value){
+        jedis.setex(key,seconds,value);
+    }
+
     public static String get(String key){
         return jedis.get(key);
     }
 
+    /**
+     * 设置key的过期时间
+     * @param key
+     * @param seconds
+     * @return
+     */
+    public static Long setKeyExpire(String key, int seconds){
+        return jedis.expire(key, seconds);
+    }
+
+    public static Boolean setIfAbsent(String key, String value){
+        if(jedis.exists(key)){
+            return false;
+        } else {
+            jedis.set(key, value);
+            return true;
+        }
+    }
+
+    /**
+     * 如果key存在则返回false，否则set
+     * @param key
+     * @param seconds
+     * @param value
+     * @return
+     */
+    public static Boolean setIfAbsent(String key, int seconds, String value){
+        if(jedis.exists(key)){
+            return false;
+        } else {
+            jedis.setex(key, seconds, value);
+            return true;
+        }
+    }
 }
