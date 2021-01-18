@@ -13,6 +13,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 import javax.annotation.Resource;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -56,12 +57,19 @@ public class RedisPoolContainer {
         return jedisPool;
     }
 
+    //TODO:优化，获取失败的时候程序启动不了
     @Bean(name = "jedisResource")
     public Jedis jedisResource(){
-        if(jedisPool == null){
-            jedisPool = redisPoolFactory();
+        Jedis jedis = null;
+        try {
+            if(jedisPool == null){
+                jedisPool = redisPoolFactory();
+            }
+            jedis = jedisPool.getResource();
+        } catch (Exception e){
+            logger.error("Redis start Error: {}", e.toString());
         }
-        return jedisPool.getResource();
+        return jedis;
     }
 
 }

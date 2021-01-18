@@ -44,8 +44,8 @@ public class MqMessageConsumerRunnable implements Runnable{
     public void run() {
         try {
             while (true){
-                msgList = consumer.poll(1000);
                 System.out.println(Thread.currentThread().getName() + " is Listen");
+                msgList = consumer.poll(1000);
                 if(null != msgList && msgList.count() > 0){
                     for (ConsumerRecord<String, String> record : msgList) {
                         System.out.println(Thread.currentThread().getName() + " consumer:" + record);

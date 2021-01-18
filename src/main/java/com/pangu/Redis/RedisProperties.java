@@ -22,6 +22,7 @@ public class RedisProperties {
     public String password;
     public String timeout;
     public Map<String, JedisPoolConfiguration> jedis;
+    public boolean open = false;
 
     @Data
     public static class JedisPoolConfiguration {
