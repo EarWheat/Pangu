@@ -65,4 +65,16 @@ public class RedisUtil {
             return true;
         }
     }
+
+    /**
+     * 删除key
+     * @param key
+     * @return
+     */
+    public static Boolean delKey(String key){
+        if(jedis.exists(key)){
+            return jedis.del(key) == 1L;
+        }
+        return false;
+    }
 }

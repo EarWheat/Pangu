@@ -5,6 +5,8 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author liuzhaoluliuzhaolu
  * @date 2021/1/12 下午4:31
@@ -40,13 +42,41 @@ public class DistributedLock {
                 if(retryTimes == 0){
                     return false;
                 }
-
+                while (retryTimes > 0){
+                    TimeUnit.MILLISECONDS.sleep(tryIntervalMillis);
+                    success = RedisUtil.setIfAbsent(redisKey, timeout, "");
+                    if(success){
+                        return true;
+                    }
+                    retryTimes--;
+                }
+                logger.info("get lock error {}", redisKey);
             }
         } catch (Exception e){
 
         }
         return false;
     }
+
+    /**
+     * 解分布式锁
+     * @param key
+     * @return
+     */
+    public static boolean unlock(String key){
+        try {
+            final String redisKey = getRedisKey(key);
+            Boolean success = RedisUtil.delKey(redisKey);
+            if(success){
+                return true;
+            }
+        } catch (Exception e){
+            logger.error("unlock key error: {}", e.toString());
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     /**
      * 获取RedisKey
