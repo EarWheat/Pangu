@@ -18,9 +18,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class DistributedLock {
     private static final Logger logger = LoggerFactory.getLogger(DistributedLock.class);
-    private static final Long RELEASE_SUCCESS = 1L;
-    private static final Long LOCK_EXPIRED = -1L;
     private static final String LOCK_PREFIX = "PANGU_DISTRIBUTED_LOCK_";
+    private static final ThreadLocal<String> localKeys = new ThreadLocal<String>();
 
     /**
      * 加分布式锁
@@ -35,6 +34,7 @@ public class DistributedLock {
             final String redisKey = getRedisKey(key);
             Boolean success = RedisUtil.setIfAbsent(redisKey, timeout, "");
             if(success){
+                localKeys.set(redisKey);
                 return true;
             } else {
                 logger.info("try to get lock {}",redisKey);
@@ -46,6 +46,7 @@ public class DistributedLock {
                     TimeUnit.MILLISECONDS.sleep(tryIntervalMillis);
                     success = RedisUtil.setIfAbsent(redisKey, timeout, "");
                     if(success){
+                        localKeys.set(redisKey);
                         return true;
                     }
                     retryTimes--;
@@ -53,7 +54,7 @@ public class DistributedLock {
                 logger.info("get lock error {}", redisKey);
             }
         } catch (Exception e){
-
+            logger.error("lock redis error:{}", e.toString());
         }
         return false;
     }
@@ -66,6 +67,17 @@ public class DistributedLock {
     public static boolean unlock(String key){
         try {
             final String redisKey = getRedisKey(key);
+            String localKey = localKeys.get();
+            // 如果本地线程没有KEY,说明还没加锁,不能释放
+            if (StringUtils.isEmpty(localKey)) {
+                logger.error("release lock an error: lock key not found key:{}", key);
+                return false;
+            }
+            // 判断KEY是否正确,不能释放其他线程的KEY
+            if (!StringUtils.isEmpty(localKey) && !localKey.equals(redisKey)) {
+                logger.error("release lock an error: illegal key:{}", key);
+                return false;
+            }
             Boolean success = RedisUtil.delKey(redisKey);
             if(success){
                 return true;
@@ -73,6 +85,8 @@ public class DistributedLock {
         } catch (Exception e){
             logger.error("unlock key error: {}", e.toString());
             e.printStackTrace();
+        } finally {
+            localKeys.remove();
         }
         return false;
     }
