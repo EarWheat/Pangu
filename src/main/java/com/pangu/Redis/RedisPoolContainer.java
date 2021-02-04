@@ -57,7 +57,6 @@ public class RedisPoolContainer {
         return jedisPool;
     }
 
-    //TODO:优化，获取失败的时候程序启动不了
     @Bean(name = "jedisResource")
     public Jedis jedisResource(){
         Jedis jedis = null;

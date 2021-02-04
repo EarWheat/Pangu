@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
  * Date         Author          Description
  * ------------------------------------------ *
  */
-@MqMessageListenerConfig(topic = "pangu", consumerGroup = "zero")
-@Component
-public class MqListenerController implements MqMessageListener {
-
-    @Override
-    public RestResult exec(ConsumerRecord<String, String> record) {
-        System.out.println("===========record:" + record.toString());
-        return RestResult.successResult(record);
-    }
-}
+//@MqMessageListenerConfig(topic = "pangu", consumerGroup = "zero")
+//@Component
+//public class MqListenerController implements MqMessageListener {
+//
+//    @Override
+//    public RestResult exec(ConsumerRecord<String, String> record) {
+//        System.out.println("===========record:" + record.toString());
+//        return RestResult.successResult(record);
+//    }
+//}

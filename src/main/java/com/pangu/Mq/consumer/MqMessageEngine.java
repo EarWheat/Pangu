@@ -28,6 +28,9 @@ public class MqMessageEngine{
         long keepAliveTime = 10000;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         Map<String, Map<String, MqMessageListener>> mqMessageListener = MqMessageListenerContainer.getMqMessageListenerContainerMap();
+        if(mqMessageListener == null){
+            return;
+        }
         for(Map.Entry listener : mqMessageListener.entrySet()){
             String topic = (String) listener.getKey();
             Map<String, MqMessageListener> listenerClazz = (Map<String, MqMessageListener>) listener.getValue();

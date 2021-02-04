@@ -77,9 +77,4 @@ public class HttpMonitorAspect {
         return result;
     }
 
-    @After("annotationPointcut()")
-    public void after(){
-        System.out.println("方法之后执行...after.");
-    }
-
 }
