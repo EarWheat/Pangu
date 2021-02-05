@@ -31,5 +31,9 @@ public class HttpSessionContext {
         sessionContext.remove(sessionId);
     }
 
+    public static Map<String, HttpSession> getSessionContext(){
+        return sessionContext;
+    }
+
 
 }
