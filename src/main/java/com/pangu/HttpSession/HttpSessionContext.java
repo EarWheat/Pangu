@@ -1,10 +1,16 @@
 package com.pangu.HttpSession;
 
+import com.pangu.Constants;
+import com.pangu.Redis.RedisUtil;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -19,8 +25,10 @@ import java.util.Map;
 public class HttpSessionContext {
     private static Map<String, HttpSession> sessionContext = new HashMap<>();
 
-    static void setHttpSession(String sessionId, HttpSession session){
-        sessionContext.put(sessionId,session);
+    public static void setHttpSession(HttpSession session){
+        if(!sessionContext.containsKey(session.getId())){
+            sessionContext.put(session.getId(),session);
+        }
     }
 
     public static HttpSession getHttpSession(String sessionId){
@@ -36,4 +44,19 @@ public class HttpSessionContext {
     }
 
 
+    /**
+     * 定时清理过期Session
+     */
+    @Scheduled(fixedRate = 600)
+    private void checkExpireSession(){
+        long now = new Date().getTime();
+        sessionContext.forEach((key, value) -> checkExpire(value, now));
+    }
+
+    private void checkExpire(HttpSession session, long now){
+        long updateTime = (Long) session.getAttribute(Constants.SESSION_UPDATE_TIME);
+        if(now - updateTime > Constants.SESSION_EXPIRE_TIME){
+            destroyedHttpSession(session.getId());
+        }
+    }
 }

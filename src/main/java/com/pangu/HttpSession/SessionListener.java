@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSessionListener;
 public class SessionListener implements HttpSessionListener {
 
     public void sessionCreated(HttpSessionEvent event)  {
-        HttpSessionContext.setHttpSession(event.getSession().getId(), event.getSession());
-        System.out.println("==========Hello, total session:" + HttpSessionContext.getSessionContext().size());
+        HttpSessionContext.setHttpSession(event.getSession());
     }
 
     public void sessionDestroyed(HttpSessionEvent event)  {
