@@ -11,4 +11,5 @@ public class Constants {
     public static final String FILE_NOT_FOUND = "文件未找到";
     public static final String SESSION_UPDATE_TIME = "sessionUpdateTime";
     public static final Integer SESSION_EXPIRE_TIME = 600;
+    public static final String SESSION_CONNECT_TIMES = "sessionConnectTimes";
 }

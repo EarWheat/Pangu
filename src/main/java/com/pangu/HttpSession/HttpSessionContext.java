@@ -25,9 +25,19 @@ import java.util.Optional;
 public class HttpSessionContext {
     private static Map<String, HttpSession> sessionContext = new HashMap<>();
 
+    /**
+     * 设置Session
+     * @param session
+     */
     public static void setHttpSession(HttpSession session){
         if(!sessionContext.containsKey(session.getId())){
+            session.setAttribute(Constants.SESSION_CONNECT_TIMES,1);    // 第一次链接
             sessionContext.put(session.getId(),session);
+        } else {
+            HttpSession s = sessionContext.get(session.getId());
+            int connectTimes = (int)s.getAttribute(Constants.SESSION_CONNECT_TIMES) + 1;    // 链接次数+1
+            s.setAttribute(Constants.SESSION_CONNECT_TIMES,connectTimes);
+            sessionContext.put(session.getId(),s);
         }
     }
 
@@ -41,6 +51,15 @@ public class HttpSessionContext {
 
     public static Map<String, HttpSession> getSessionContext(){
         return sessionContext;
+    }
+
+    /**
+     * 是否已经
+     * @param sessionId
+     * @return
+     */
+    public static Boolean containsSession(String sessionId){
+        return sessionContext.containsKey(sessionId);
     }
 
 
