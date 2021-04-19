@@ -1,6 +1,5 @@
 package com.pangu.File.Demo;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.pangu.File.FileReadUtil;
 

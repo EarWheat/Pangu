@@ -5,7 +5,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.JedisPool;
 
 /**
  * @author liuzhaoluliuzhaolu

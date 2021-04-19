@@ -1,6 +1,5 @@
 package com.pangu.Mq.consumer;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

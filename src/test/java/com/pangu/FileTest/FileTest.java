@@ -3,7 +3,6 @@ package com.pangu.FileTest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.pangu.File.FileReadUtil;
-import com.pangu.File.FileUtil;
 
 /**
  * @author liuzhaoluliuzhaolu

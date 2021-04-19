@@ -1,11 +1,5 @@
 package com.pangu.Controller;
 
-import com.pangu.Http.response.RestResult;
-import com.pangu.Mq.consumer.MqMessageListenerConfig;
-import com.pangu.Mq.consumer.MqMessageListener;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.stereotype.Component;
-
 /**
  * @author liuzhaoluliuzhaolu
  * @date 2020-12-21 19:41

@@ -1,6 +1,8 @@
 package com.pangu.Base.Exception;
 
+
 import com.pangu.Http.response.RestResult;
+import com.pangu.Http.response.ResultEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,8 +24,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public RestResult exceptionHandler(Exception ex) {
-        LOGGER.error("服务器异常", ex);
-        return RestResult.failResult(ex);
+    public RestResult exceptionHandler() {
+//        LOGGER.error("服务器异常", ex);
+        return RestResult.failResult(ResultEnum.EXCEPTION);
     }
 }

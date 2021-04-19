@@ -1,6 +1,5 @@
 package com.pangu.Redis;
 
-import com.pangu.Http.request.HttpClient;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,6 @@ import redis.clients.jedis.JedisPoolConfig;
 
 import javax.annotation.Resource;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * @author liuzhaoluliuzhaolu

@@ -1,8 +1,6 @@
 package com.pangu.HttpSession;
 
 import com.pangu.Constants;
-import com.pangu.Redis.RedisUtil;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * @author liuzhaoluliuzhaolu

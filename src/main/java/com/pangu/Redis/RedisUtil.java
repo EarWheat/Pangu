@@ -1,7 +1,6 @@
 package com.pangu.Redis;
 
 import com.pangu.Base.Context.PanguApplicationContext;
-import com.pangu.PanguApplication;
 import redis.clients.jedis.Jedis;
 
 /*
