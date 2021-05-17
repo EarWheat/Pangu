@@ -1,6 +1,6 @@
 package com.pangu.Redis;
 
-import com.pangu.Base.Context.PanguApplicationContext;
+import com.pangu.Base.Context.SpringApplicationContext;
 import redis.clients.jedis.Jedis;
 
 /*
@@ -10,7 +10,7 @@ import redis.clients.jedis.Jedis;
  */
 public class RedisUtil {
 
-    private static Jedis jedis = PanguApplicationContext.getBean("jedisResource");
+    private static Jedis jedis = SpringApplicationContext.getBean("jedisResource");
 
     public static void set(String key, String value) {
         jedis.set(key,value);

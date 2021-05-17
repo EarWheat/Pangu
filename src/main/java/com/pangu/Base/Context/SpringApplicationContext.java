@@ -1,10 +1,13 @@
 package com.pangu.Base.Context;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -17,17 +20,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Order(-10001)
-public class PanguApplicationContext implements ApplicationContextAware {
+public class SpringApplicationContext implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
-    public PanguApplicationContext(ApplicationContext applicationContext){
+    public SpringApplicationContext(ApplicationContext applicationContext){
         this.applicationContext = applicationContext;
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        PanguApplicationContext.applicationContext = applicationContext;
+        SpringApplicationContext.applicationContext = applicationContext;
     }
 
     /**
@@ -37,6 +40,10 @@ public class PanguApplicationContext implements ApplicationContextAware {
      */
     public static ApplicationContext getApplicationContext(){
         return applicationContext;
+    }
+
+    public static <T> Map<String, T> getBeans(Class<T> requiredType) throws BeansException {
+        return applicationContext.getBeansOfType(requiredType);
     }
 
     /**
