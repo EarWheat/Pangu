@@ -1,6 +1,7 @@
 package com.pangu.Annotation.Idempotent;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pangu.Redis.RedisUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,6 @@ public class ApiIdempotentServiceImpl implements ApiIdempotentService{
         Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
         System.out.println("========" + JSONObject.toJSONString(parameterMap));
         String requestParam = Base64.getEncoder().encodeToString(DigestUtils.md5(JSONObject.toJSONString(parameterMap)));
-        return false;
+        return RedisUtil.exists(requestParam);
     }
 }

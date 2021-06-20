@@ -26,7 +26,7 @@ public class RedisUtil {
         jedis.setex(key,seconds,value);
     }
 
-    public static String get(String key){
+    public static Object get(String key){
         return jedis.get(key);
     }
 
@@ -75,5 +75,9 @@ public class RedisUtil {
             return jedis.del(key) == 1L;
         }
         return false;
+    }
+
+    public static Boolean exists(String key){
+        return jedis.exists(key);
     }
 }
