@@ -1,0 +1,62 @@
+package com.pangu.Rpc.rpcCenter;
+
+import com.pangu.Rpc.rpcServer.RpcServer;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Service;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author liuzhaoluliuzhaolu
+ * @date 2021/9/8 7:06 下午
+ * @desc
+ * @prd
+ * @Modification History:
+ * Date         Author          Description
+ * ------------------------------------------ *
+ */
+@Service
+public class ServiceCenterImpl implements ServiceCenter, ApplicationContextAware {
+
+    public ApplicationContext context;
+
+    public List<RemoteServiceInfo> remoteServices = new ArrayList<>();
+
+    @Value("${rpc.server.ip}")
+    private String ip;
+
+    @Value("${rpc.server.port}")
+    private int port;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        context = applicationContext;
+        Map<String, RpcServer> rpcServers = applicationContext.getBeansOfType(RpcServer.class);
+        rpcServers.forEach((k, v) -> {
+            Method[] methods = v.getClass().getMethods();
+            Arrays.stream(methods).forEach(method -> {
+                remoteServices.add(RemoteServiceInfo.builder()
+                        .ip(ip)
+                        .port(port)
+                        .clazz(v.getClass())
+                        .method(method)
+                        .build());
+            });
+        });
+        // 启动Socket线程
+
+    }
+
+    @Override
+    public RemoteServiceInfo getRemoteService(Class<?> clazz, Method method) {
+
+        return null;
+    }
+}
