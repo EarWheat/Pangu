@@ -23,6 +23,23 @@ spring:
     timeout: 5000
   monitor:
     master.email: 554725722@qq.com #管理者邮箱
+  datasource:
+    url: jdbc:mysql://localhost:3306/pangu?useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true&serverTimezone=CST
+    username: root
+    password: liuzhaolu123
+    driver-class-name: com.mysql.jdbc.Driver
+#    hikari:
+#      jdbc-url: jdbc:mysql://localhost:3306/pangu?useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true&serverTimezone=CST
+#      username: root
+#      password: liuzhaolu123
+#      driver-class-name: com.mysql.jdbc.Driver
+#      connection-timeout: 30000
+#      max-lifetime: 110000
+#      minimum-idle: 10
+#      maximum-pool-size: 10
+#      pool-name: pangu
+#      connectionTestQuery: select 1
+
 server:
   port: 8000
 
@@ -36,3 +53,12 @@ kafka:
   autoCommitInterval: 1000
   sessionTimeOut: 30000
   autoOffsetReset: earliest
+
+
+rpc:
+  server:
+    ip: 127.0.0.1
+    port: 8080
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
