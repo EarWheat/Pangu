@@ -7,11 +7,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -51,7 +59,17 @@ public class ServiceCenterImpl implements ServiceCenter, ApplicationContextAware
             });
         });
         // 启动Socket线程
+        try {
+            ServerSocket serverSocket = new ServerSocket(port);
+//            serverSocket.bind(new InetSocketAddress(port));
+            ThreadPoolExecutor executor = new ThreadPoolExecutor(5,10,600, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
+            executor.execute(new ServiceTask(serverSocket));
+        } catch (IOException e){
 
+        }
+        catch (Exception e){
+
+        }
     }
 
     @Override
